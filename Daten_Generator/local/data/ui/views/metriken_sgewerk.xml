@@ -1,0 +1,71 @@
+<form>
+  <label>Metriken_Sägewerk</label>
+  <description></description>
+  <fieldset submitButton="false">
+    <input type="time" searchWhenChanged="true" token="global_time_tok">
+      <label>Time Range</label>
+      <default>
+        <earliest>-15m</earliest>
+        <latest>now</latest>
+      </default>
+      <change>
+        <eval token="now">now()</eval>
+        <eval token="relative_earliest">relative_time($now$, $earliest$)</eval>
+        <eval token="relative_latest">relative_time($now$, $latest$)</eval>
+        <set token="timeshift_undefined">undefined</set>
+        <eval token="timeshift_earliest_undefined">if(isnum($earliest$), relative_time($earliest$, $timeshift_undefined$), relative_time($relative_earliest$, $timeshift_undefined$))</eval>
+        <eval token="timeshift_latest_undefined">if(isnum($latest$), relative_time($latest$, $timeshift_undefined$), relative_time($relative_latest$, $timeshift_undefined$))</eval>
+      </change>
+    </input>
+    <input type="dropdown">
+      <label>Time Span</label>
+      <choice value="auto">auto</choice>
+      <choice value="5s">5s</choice>
+      <choice value="10s">10s</choice>
+      <choice value="30s">30s</choice>
+      <choice value="1m">1m</choice>
+      <choice value="5m">5m</choice>
+      <choice value="10m">10m</choice>
+      <choice value="30m">30m</choice>
+      <choice value="1h">1h</choice>
+      <default>auto</default>
+      <change>
+        <eval token="timechart_span">if($value$ == "auto", "", "span=".$value$)</eval>
+        <eval token="mstats_span">"span=".$value$</eval>
+      </change>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <chart>
+        <title>Bieberbau.alpha.Strom, Bieberbau.beta.Strom, Spechtnest.gamma.Strom</title>
+        <search>
+          <query>| mstats max(_value) prestats=true WHERE metric_name="Bieberbau.alpha.Strom" AND index="metrikenschreinerei" $mstats_span$
+| timechart max(_value) AS "Bieberbau.alpha.Strom" $timechart_span$
+| fields - _span
+| append [| mstats max(_value) prestats=true WHERE metric_name="Bieberbau.beta.Strom" AND index="metrikenschreinerei" $mstats_span$
+| timechart max(_value) AS "Bieberbau.beta.Strom" $timechart_span$
+| fields - _span]
+| append [| mstats max(_value) prestats=true WHERE metric_name="Spechtnest.gamma.Strom" AND index="metrikenschreinerei" $mstats_span$
+| timechart max(_value) AS "Spechtnest.gamma.Strom" $timechart_span$
+| fields - _span]
+| eval summe=Bieberbau.alpha.Strom+Bieberbau.beta.Strom+Spechtnest.gamma.Strom
+| selfjoin keepsingle=true _time</query>
+          <earliest>$global_time_tok.earliest$</earliest>
+          <latest>$global_time_tok.latest$</latest>
+        </search>
+        <option name="charting.axisY.abbreviation">auto</option>
+        <option name="charting.axisY.includeZero">1</option>
+        <option name="charting.chart">line</option>
+        <option name="charting.chart.nullValueMode">connect</option>
+        <option name="charting.drilldown">none</option>
+        <option name="charting.fieldColors">{"Avg":"#1e93c6","Bieberbau.alpha.Strom":"#6a5c9e","Bieberbau.beta.Strom":"#31a35f","Spechtnest.gamma.Strom":"#ed8440","Max Bieberbau.alpha.Strom":"#6a5c9e","Avg Bieberbau.beta.Strom":"#f2b827","Avg Spechtnest.gamma.Strom":"#d6563c","Max Bieberbau.beta.Strom":"#31a35f"}</option>
+        <option name="charting.fieldDashStyles">{"Avg":"solid","Bieberbau.alpha.Strom":"solid","Bieberbau.beta.Strom":"solid","Spechtnest.gamma.Strom":"solid","Max Bieberbau.alpha.Strom":"solid","Avg Bieberbau.beta.Strom":"solid","Avg Spechtnest.gamma.Strom":"solid","Max Bieberbau.beta.Strom":"solid"}</option>
+        <option name="charting.gridLinesX.showMajorLines">1</option>
+        <option name="charting.legend.mode">seriesCompare</option>
+        <option name="displayview">analysis_workspace</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+</form>
