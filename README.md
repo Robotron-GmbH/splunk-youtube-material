@@ -15,3 +15,11 @@ Hier findet ihr unter anderem:
 4. Anschließend kann man mit dem Befehl     | generatedaten seconds_running=X wobei X die Laufzeit des Skriptes in Sekunden angibt.
 5. Die Daten können dann mit index=auftrag abgerufen werden. Ebenfalls gibt es metrische Daten unter dem Index Maschinen welche im Analytics Store zu finden sind.  
 
+
+## Splunk Kurse
+Du bist Anfänger oder Fortgeschrittener und interessierst dich für eine Splunk Schulung? Hier findest du ein Auswahl an passenden Kursen der Firma Robotron: https://www.robotron.de/schulungszentrum/splunk 
+
+
+## Beispieldashboard
+Im folgenden Bild sieht man ein Dashboard das mit den simulierten Sägewerk Daten befüllt wurde.
+![dashboardsägewerk](https://user-images.githubusercontent.com/87022602/124736650-82679380-df17-11eb-9b2c-2f9d00095baa.PNG)
