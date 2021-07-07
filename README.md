@@ -13,5 +13,5 @@ Hier findet ihr unter anderem:
 2. Den Ordner anschließend in den SPLUNK/etc/apps Ordner verschieben. Unter Windows findet man Splunk meistens unter C:\Program Files\.
 3. Splunk neustarten. Hierbei unter Einstellungen -> Serversteuerungen -> Splunk neustarten gehen.
 4. Anschließend kann man mit dem Befehl     | generatedaten seconds_running=X wobei X die Laufzeit des Skriptes in Sekunden angibt.
-5. Die Daten können dann mit index=auftrag abgerufen werden. Ebenfalls gibt es metrische Daten unter dem Index Maschinen welche im Analytics Store zu finden sind. 
+5. Die Daten können dann mit index=auftrag abgerufen werden. Ebenfalls gibt es metrische Daten unter dem Index Maschinen welche im Analytics Store zu finden sind.  
 
