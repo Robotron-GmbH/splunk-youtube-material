@@ -7,6 +7,8 @@ Hier findet ihr unter anderem:
 - Die Datengenatorapp mit dem ihr Daten eines Sägewerkes simulieren könnt. Eine ausführliche Video-Anleitung für die Installation findet ihr hier: LINK. 
 - Weiteres Infomaterial zu den Videos.
 
+Ihr habt Wunschthemen, Ideen oder Fragen? Dann schickt mir eine E-Mail.
+
 
 ## Anleitung für die Installation des Datengenerators
 1. Den kompletten Ordner Daten_Generator herrunterladen und gegebnenfalls entpacken.
@@ -38,7 +40,16 @@ metric_timestamp | Halle | metric_name | _value
 metric_timestamp beschreibt dabei die Zeit UNIX-Zeit. Metric_Name ist der Pfad wo sich das Messgerät befindet, und _value beschreibt den Wert, z.B. Temperatur in Grad oder den Luftdruck.
 
 ## Splunk Kurse
-Du bist Anfänger oder Fortgeschrittener und interessierst dich für eine Splunk Schulung? Hier findest du eine Auswahl an passenden Kursen der Firma Robotron: https://www.robotron.de/schulungszentrum/splunk 
+
+Interesse an spannenden Splunkschulungen mit uns? Wir von der Firma Robotron bieten vier verschiedene Schulungen zum Thema Splunk:
+- Splunk Grundlagen: ein Kurs für Splunkneulinge. Hier geht’s um die Basics wie die SPL Suche oder Dashboard Gestaltung.
+- Splunk Administration: ein Kurs für diejenigen die Splunk verwalten möchten und das Backend verstehen und bedienen wollen
+- Splunk Frontend: in diesem Kurs wird intensiv auf weitergehende grafische Möglichkeiten von Splunk eingegangen. Wie kann ich z.B. CSS oder JavaScript einbinden, wie erstelle ich ein Corporate Design in Splunk oder wie programmiere ich Custom Visualizations?
+- Splunk IoT Bootcamp: hier liegt der Fokus auf der Einrichtung, Analyse und Auswertung eines End-to-End Szenarios im Kontext einer Industrie 4.0 Umgebung. 
+
+Alle weiteren Informationen wie Preise, Termine und genaue Themenauflistung findest du unter https://www.robotron.de/schulungszentrum/splunk. 
+
+Wir freuen uns auf deinen Besuch!
 
 
 ## Beispieldashboard
