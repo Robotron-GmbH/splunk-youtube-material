@@ -14,8 +14,10 @@ Ihr habt Wunschthemen, Ideen oder Fragen? Dann schickt mir eine E-Mail.
 1. Den kompletten Ordner Daten_Generator herrunterladen und gegebnenfalls entpacken.
 2. Den Ordner anschließend in den SPLUNK/etc/apps Ordner verschieben. Unter Windows findet man Splunk meistens unter C:\Program Files\.
 3. Splunk neustarten. Hierbei unter Einstellungen -> Serversteuerungen -> Splunk neustarten gehen.
-4. Anschließend kann man mit dem Befehl     | generatedaten seconds_running=X wobei X die Laufzeit des Skriptes in Sekunden angibt.
-5. Die Daten können dann mit index=auftrag abgerufen werden. Ebenfalls gibt es metrische Daten unter dem Index Maschinen welche im Analytics Store zu finden sind.  
+4. Anschließend kann man mit dem Befehl   
+ ``` | generatedaten seconds_running=X``` 
+   wobei X die Laufzeit des Skriptes in Sekunden angibt. Z.b. seconds_running=3600 für eine 1h Laufzeit.
+5. Die Daten können dann mit ```index=auftrag``` abgerufen werden. Ebenfalls gibt es metrische Daten unter dem Index Maschinen welche im Analytics Store zu finden sind.  
 
 ### Daten
 Das Skript befüllt zwei Indizes, den Eventindex "auftrag" und den Metrikindex "maschinen". In ersterem sehen die Daten wie folgt aus:
