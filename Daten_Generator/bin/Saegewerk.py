@@ -286,7 +286,7 @@ for i in range(kunden):
     
 
     time.sleep(1)
-    Zeitstempel=time.time()
+    Zeitstempel=round(time.time(),1)
     Time= datetime.datetime.fromtimestamp(int(Zeitstempel)).strftime('%Y-%m-%d %H:%M:%S')
 
     
