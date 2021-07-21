@@ -2,7 +2,7 @@
   <init>
     <set token="tok_kunde">*</set>
   </init>
-  <label>Auftragsübersicht</label>
+  <label>Sägewerk Übungsdashboard</label>
   <fieldset submitButton="true" autoRun="false">
     <input type="time" token="tok_time">
       <label>Uhrzeit</label>
@@ -63,15 +63,6 @@
       <title>Annotation Übung</title>
       <chart>
         <title>Gewicht des Produktes: $tok_produkt$</title>
-        <search>
-          <query>
-            index=auftrag
-	|table _time Gewicht
-	</query>
-          <earliest>$tok_time.earliest$</earliest>
-          <latest>$tok_time.latest$</latest>
-          <sampleRatio>1</sampleRatio>
-        </search>
         <search type="annotation">
           <query>
 	index=auftrag
@@ -82,6 +73,15 @@
 </query>
           <earliest>$tok_time.earliest$</earliest>
           <latest>$tok_time.latest$</latest>
+        </search>
+        <search>
+          <query>
+            index=auftrag
+	|table _time Gewicht
+	</query>
+          <earliest>$tok_time.earliest$</earliest>
+          <latest>$tok_time.latest$</latest>
+          <sampleRatio>1</sampleRatio>
         </search>
         <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
         <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
