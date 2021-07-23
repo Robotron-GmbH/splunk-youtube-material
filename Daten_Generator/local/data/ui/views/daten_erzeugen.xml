@@ -1,0 +1,36 @@
+<form>
+  <label>Daten_Erzeugen</label>
+  <fieldset submitButton="true">
+    <input type="text" token="tok_seconds">
+      <label>Laufzeit in Sekunden</label>
+      <default>60</default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <html>
+        Anmerkungen:
+        Unter Umständen kann es sein das eine Fehlermeldung erscheint. Das Skript läuft aber trotzdem im Hintergrund weiter.
+      </html>
+      <event>
+        <search>
+          <query>| generatedaten seconds_running=$tok_seconds$</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">20</option>
+        <option name="list.drilldown">none</option>
+        <option name="list.wrap">1</option>
+        <option name="maxLines">5</option>
+        <option name="raw.drilldown">full</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">0</option>
+        <option name="table.drilldown">all</option>
+        <option name="table.sortDirection">asc</option>
+        <option name="table.wrap">1</option>
+        <option name="type">list</option>
+      </event>
+    </panel>
+  </row>
+</form>

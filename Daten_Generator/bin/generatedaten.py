@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-import sys, os
+import sys,platform, os
 import time
 
 path = os.path.normpath(os.getcwd())
@@ -18,7 +18,10 @@ class generatedatenCommand(GeneratingCommand):
     splunkhome_arr=path.split(os.sep)[:-4]
     splunkhome=os.sep.join(splunkhome_arr)
     
-    Python=os.path.join(splunkhome,"bin","python.exe") #Pfad zur App
+    if platform.system()=="Windows":
+        Python=os.path.join(splunkhome,"bin","python.exe") #Pfad zur App Windows
+    else:
+        Python=os.path.join(splunkhome,"bin","python") #Pfad zur App Mac und Linux
 
     seconds_running = Option(require=True, validate=validators.Integer())
     

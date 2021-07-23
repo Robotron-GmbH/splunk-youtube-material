@@ -5,25 +5,22 @@
   <view name="reports" />
   <view name="alerts" />
   <view name="dashboards" />
-    <!-- Use the view tag to create a dashboard link -->
-    <view name="Sägewerk Dashboards" />
-
+ 
     <!-- Use the collection tag to create a list of items -->
     <collection label="Sägewerk Dashboards">
 
         <!-- Add items to the list -->
+        <view name="daten_erzeugen"/>
         <view name="annotations" />
         <view name="auftrge_postprocess" />
         <view name="bersicht_auftrge" />
         <view name="maschinendaten" />
         <view name="produktion_endanwender" />
         <!--Add a nested list with items --> 
-        <collection label="Dashboard Studio">
-            <view name="dashboard_studio_minimalbsp" />
-        </collection>
-
+            <collection label="Dashboard Studio">
+                <view name="dashboard_studio_minimalbsp" />
+            </collection>
     </collection>
-
-<view name="splunk_schulungen"/>
+      <view name="splunk_schulungen"/>
 
 </nav>
