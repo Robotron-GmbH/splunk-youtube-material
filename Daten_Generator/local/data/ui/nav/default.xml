@@ -14,11 +14,12 @@
         <view name="annotations" />
         <view name="auftrge_postprocess" />
         <view name="bersicht_auftrge" />
-        <view name="maschinendaten" />
+        <view name="anzahl_holz" />
         <view name="produktion_endanwender" />
         <!--Add a nested list with items --> 
             <collection label="Dashboard Studio">
                 <view name="dashboard_studio_minimalbsp" />
+                <view name="maschinendaten_db_studio" />
             </collection>
     </collection>
       <view name="splunk_schulungen"/>
