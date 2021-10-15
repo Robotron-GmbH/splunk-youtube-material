@@ -16,7 +16,7 @@ Ihr habt Wunschthemen, Ideen oder Fragen? Dann schickt mir eine E-Mail.
 3. Splunk neustarten. Hierbei unter Einstellungen -> Serversteuerungen -> Splunk neustarten gehen.
 4. Anschließend kann man mit dem Befehl   
  ``` | generatedaten seconds_running=X``` 
-   wobei X die Laufzeit des Skriptes in Sekunden angibt. Z.b. seconds_running=3600 für eine 1h Laufzeit.
+   wobei X die Laufzeit des Skriptes in Sekunden angibt. Z.b. seconds_running=3600 für eine 1h Laufzeit. Alternativ kann man auch das Dashboard Daten_Erzeugen aufrufen und sich dort die gewünschten Daten erzeugen lassen.
 5. Die Daten können dann mit ```index=auftrag``` abgerufen werden. Ebenfalls gibt es metrische Daten unter dem Index Maschinen welche im Analytics Store zu finden sind.  
 
 ### Daten
