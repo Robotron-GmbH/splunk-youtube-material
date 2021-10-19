@@ -13,7 +13,7 @@
       <fieldForLabel>Holz</fieldForLabel>
       <fieldForValue>Holz</fieldForValue>
       <search>
-        <query>index=auftrag
+        <query>index=auftrag 
 | dedup Holz |table Holz</query>
         <earliest>-24h@h</earliest>
         <latest>now</latest>
