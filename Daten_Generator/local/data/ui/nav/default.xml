@@ -17,6 +17,7 @@
         <view name="anzahl_holz" />
         <view name="produktion_endanwender" />
         <view name="chart_auswahl" />
+        <view name="drilldown_bersicht"/>
         <!--Add a nested list with items --> 
             <collection label="Dashboard Studio">
                 <view name="dashboard_studio_minimalbsp" />
