@@ -14,7 +14,7 @@
     <panel>
       <chart>
         <title>Größter Sammelauftrag über die Zeit</title>
-        <search base="basis">
+        <search base="basis" id="hierachie_ebene_2">
           <query>
 | timechart span=5min max(eventcount)</query>
         </search>

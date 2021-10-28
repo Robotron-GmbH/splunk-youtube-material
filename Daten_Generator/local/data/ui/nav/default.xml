@@ -11,13 +11,18 @@
 
         <!-- Add items to the list -->
         <view name="daten_erzeugen"/>
-        <view name="annotations" />
-        <view name="auftrge_postprocess" />
         <view name="bersicht_auftrge" />
-        <view name="anzahl_holz" />
         <view name="produktion_endanwender" />
+          <collection label="Dashboards für Übungen">
+      <view name="schulungs_dashboard"/>
+        <view name="auftrge_postprocess" />
+        <view name="annotations" />
+          </collection>
+          <collection label="Übersichts Dashboards">
         <view name="chart_auswahl" />
         <view name="drilldown_bersicht"/>
+        <view name="anzahl_holz" />
+            </collection>
         <!--Add a nested list with items --> 
             <collection label="Dashboard Studio">
                 <view name="dashboard_studio_minimalbsp" />
