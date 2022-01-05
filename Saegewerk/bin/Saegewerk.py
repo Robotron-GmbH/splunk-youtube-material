@@ -123,7 +123,7 @@ def temperatur_ausreisser(x):
     return Temp
 
 
-def maschinen_daten_schreiben(Zeitstempel,Halle,Maschine,i):
+def maschinen_daten_schreiben(Zeitstempel,Mitarbeiter,Halle,Maschine,i):
     Temp= round(2*math.sin(0.4*i)+random.gauss(40,1),2)
     Strom=  round(math.sin(0.2*i)+random.gauss(10,1),3)
 
@@ -132,10 +132,10 @@ def maschinen_daten_schreiben(Zeitstempel,Halle,Maschine,i):
         Temp=Temp+61
     
     #maschinendaten={"Zeitstempel":Zeitstempel,"Halle":Halle,"Messwert":Halle+"."+Maschine+".Temperatur","Temperatur":str(Temp)}
-    write_logs_array(file_metrics,[Zeitstempel,Halle,Halle+"."+Maschine+".Temperatur",str(Temp)])
+    write_logs_array(file_metrics,[Zeitstempel,Mitarbeiter,Halle+"."+Maschine+".Temperatur",str(Temp)])
 
     #maschinendaten={"Zeitstempel":Zeitstempel,"Halle":Halle,"Messwert":Halle+"."+Maschine+".Strom","Strom":str(Strom)}
-    write_logs_array(file_metrics,[Zeitstempel,Halle,Halle+"."+Maschine+".Strom",str(Strom)])
+    write_logs_array(file_metrics,[Zeitstempel,Mitarbeiter,Halle+"."+Maschine+".Strom",str(Strom)])
 
     #print("Temperatur",Temp,"Strom",Strom,"Halle",Halle,"Maschine",Maschine)
     return Temp,Strom
@@ -153,16 +153,16 @@ def maschinen_daten_schreiben_aussen(Zeitstempel,i,Wasserdruck,Sensehat_Vorhande
         
    # maschinendaten={"Zeitstempel":Zeitstempel,"Halle":"Aussenbereich","Messwert":"Aussenbereich.Aussentemperatur","Temperatur":str(Aussentemp)}
     #write_logs(file_metrics,maschinendaten)
-    write_logs_array(file_metrics,[Zeitstempel,"Aussenbereich","Aussenbereich.Aussentemperatur",str(Aussentemp)])
+    write_logs_array(file_metrics,[Zeitstempel,"Emilia","Aussenbereich.Aussentemperatur",str(Aussentemp)])
     
    # maschinendaten={"Zeitstempel":Zeitstempel,"Halle":"Aussenbereich","Messwert":"Aussenbereich.Luftfeuchtigkeit","Luftfeuchtigkeit":str(Feuchtigkeit)}
-    write_logs_array(file_metrics,[Zeitstempel,"Aussenbereich","Aussenbereich.Luftfeuchtigkeit",str(Feuchtigkeit)])
+    write_logs_array(file_metrics,[Zeitstempel,"Emilia","Aussenbereich.Luftfeuchtigkeit",str(Feuchtigkeit)])
     
     #maschinendaten={"Zeitstempel":Zeitstempel,"Halle":"Aussenbereich","Messwert":"Aussenbereich.Luftdruck","Luftdruck":str(Luftdruck)}
-    write_logs_array(file_metrics,[Zeitstempel,"Aussenbereich","Aussenbereich.Luftdruck",str(Luftdruck)])
+    write_logs_array(file_metrics,[Zeitstempel,"Emilia","Aussenbereich.Luftdruck",str(Luftdruck)])
     
     #maschinendaten={"Zeitstempel":Zeitstempel,"Halle":"Aussenbereich","Messwert":"Aussenbereich.Wasserdruck","Wasserdruck":str(Wasserdruck)}
-    write_logs_array(file_metrics,[Zeitstempel,"Aussenbereich","Aussenbereich.Wasserdruck",str(Wasserdruck)])
+    write_logs_array(file_metrics,[Zeitstempel,"Emilia","Aussenbereich.Wasserdruck",str(Wasserdruck)])
     
     #print("Aussentemp,Feuchtigkeit,Luftdruck,Wasserdruck",Aussentemp,Feuchtigkeit,Luftdruck,Wasserdruck)
     return Aussentemp,Feuchtigkeit,Luftdruck,Wasserdruck
@@ -199,24 +199,24 @@ if os.path.isfile(file_metrics):
     pass
 else:
     output_file = open(file_metrics, 'w')
-    output_file.write("metric_timestamp,Halle,metric_name,_value\n")
+    output_file.write("metric_timestamp,Verantwortlicher,metric_name,_value\n")
     output_file.close()
 
 ################## Datengrundlage #############################
 kunden_arr=[]
-kunden_arr.append({"Kunde":"IDEA"   ,"Prio":5,"Produkte":["Schrank","Stuhl","Tisch","Regal","Tablethalter"],"P_Produkt":[0.4,0.2,0.15,0.2,0.05],"Holzart":["Fichte","Kiefer","Buche","Birke"],"P_Holzart":[0.1,0.3,0.2,0.4]})
-kunden_arr.append({"Kunde":"Fuchsbau","Prio":3,"Produkte":["Tisch","Stuhl","Regal"],"P_Produkt":[0.7,0.1,0.2],"Holzart":["Fichte","Tanne"],"P_Holzart":[0.4,0.6]})
-kunden_arr.append({"Kunde":"Porathholz" ,"Prio":2,"Produkte":["Tisch","Stuhl"],"P_Produkt":[0.9,0.1],"Holzart":["Buche","Kiefer"],"P_Holzart":[0.5,0.5]})
-kunden_arr.append({"Kunde":"Schmidt Bretter","Prio":1,"Produkte":["Tisch","Regal","Stuhl"],"P_Produkt":[0.8,0.1,0.1],"Holzart":["Fichte","Tanne"],"P_Holzart":[0.3,0.7]})
-kunden_arr.append({"Kunde":"Weser Baumschule"  ,"Prio":1,"Produkte":["Schrank","Hocker"],"P_Produkt":[0.5,0.5],"Holzart":["Fichte","Buche"],"P_Holzart":[0.4,0.6]})
+kunden_arr.append({"Kunde":"IDEA"   ,"Prio":6,"Produkte":["Schrank","Stuhl","Tisch","Regal","Tablethalter"],"P_Produkt":[0.4,0.2,0.15,0.2,0.05],"Holzart":["Fichte","Kiefer","Buche","Birke"],"P_Holzart":[0.1,0.3,0.2,0.4]})
+kunden_arr.append({"Kunde":"Fuchsbau","Prio":5,"Produkte":["Tisch","Stuhl","Regal"],"P_Produkt":[0.7,0.1,0.2],"Holzart":["Fichte","Tanne"],"P_Holzart":[0.4,0.6]})
+kunden_arr.append({"Kunde":"Porathholz" ,"Prio":4,"Produkte":["Tisch","Stuhl"],"P_Produkt":[0.9,0.1],"Holzart":["Buche","Kiefer"],"P_Holzart":[0.5,0.5]})
+kunden_arr.append({"Kunde":"Schmidt Bretter","Prio":3,"Produkte":["Tisch","Regal","Stuhl"],"P_Produkt":[0.8,0.1,0.1],"Holzart":["Fichte","Tanne"],"P_Holzart":[0.3,0.7]})
+kunden_arr.append({"Kunde":"Weser Baumschule"  ,"Prio":2,"Produkte":["Schrank","Hocker"],"P_Produkt":[0.5,0.5],"Holzart":["Fichte","Buche"],"P_Holzart":[0.4,0.6]})
 kunden_arr.append({"Kunde":"Walter Baumhaus" ,"Prio":0.5,"Produkte":["Regal"],"P_Produkt":[1],"Holzart":["Fichte","Birke"],"P_Holzart":[0.7,0.3]})
-kunden_arr.append({"Kunde":"Hansen" ,"Prio":1 ,"Produkte":["Tisch","Hocker"],"P_Produkt":[0.3,0.7],"Holzart":["Kiefer","Buche"],"P_Holzart":[0.5,0.5]})
+kunden_arr.append({"Kunde":"Pinoccio" ,"Prio":1 ,"Produkte":["Tisch","Hocker"],"P_Produkt":[0.3,0.7],"Holzart":["Kiefer","Buche"],"P_Holzart":[0.5,0.5]})
 kunden_arr.append({"Kunde":"Herrmann Bretter","Prio":1,"Produkte":["Bank"],"P_Produkt":[1],"Holzart":["Birke","Buche"],"P_Holzart":[0.1,0.9]})
 kunden_arr.append({"Kunde":"Ecke"    ,"Prio":1,"Produkte":["Schrank","Stuhl"],"P_Produkt":[0.3,0.7],"Holzart":["Fichte","Kiefer"],"P_Holzart":[0.2,0.8]})
 kunden_arr.append({"Kunde":"Immanuel Kantholz"   ,"Prio":1,"Produkte":["Stuhl","Bank"],"P_Produkt":[0.5,0.5],"Holzart":["Fichte","Kiefer"],"P_Holzart":[0.4,0.6]})
 kunden_arr.append({"Kunde":"BlumenExpress"   ,"Prio":1.5,"Produkte":["Tablethalter","Truhe"],"P_Produkt":[0.8,0.2],"Holzart":["Fichte","Kiefer"],"P_Holzart":[0.4,0.6]})
 kunden_arr.append({"Kunde":"Blocksberg Besen" ,"Prio":0.3,"Produkte":["Truhe","Tablethalter"],"P_Produkt":[0.8,0.2],"Holzart":["Buche","Eiche"],"P_Holzart":[0.4,0.6]})
-kunden_arr.append({"Kunde":"Fynn" ,"Prio":0.01,"Produkte":["Zaunlatten"],"P_Produkt":[1],"Holzart":["Birke"],"P_Holzart":[1.]})
+kunden_arr.append({"Kunde":"Fynn" ,"Prio":0.05,"Produkte":["Zaunlatten"],"P_Produkt":[1],"Holzart":["Birke"],"P_Holzart":[1.]})
 
 
 
@@ -227,7 +227,7 @@ kunden_info.update({"Porathholz":{"Adresse":"Baumweg 3","IP":zufalls_ip()}})
 kunden_info.update({"Schmidt Bretter":{"Adresse":"Zitronengasse 32","IP":zufalls_ip()}})
 kunden_info.update({"Weser Baumschule":{"Adresse":"Erdbeer Rue 32","IP":zufalls_ip()}})
 kunden_info.update({"Walter Baumhaus":{"Adresse":"Marmeladenplatz 642","IP":zufalls_ip()}})
-kunden_info.update({"Hansen":{"Adresse":"Keksstrasse 22","IP":zufalls_ip()}})
+kunden_info.update({"Pinoccio":{"Adresse":"Keksstrasse 22","IP":zufalls_ip()}})
 kunden_info.update({"Herrmann Bretter":{"Adresse":"Hariboweg 98","IP":zufalls_ip()}})
 kunden_info.update({"Ecke":{"Adresse":"An der Ecke 54","IP":zufalls_ip()}})
 kunden_info.update({"Immanuel Kantholz":{"Adresse":"Fotogasse 766","IP":zufalls_ip()}})
@@ -257,6 +257,8 @@ holz_info.update({"Tanne":{"Kosten":0.9,"Dauer":1.05,"Farbe":"Sehr Hell"}})
 holz_info.update({"Kiefer":{"Kosten":0.95,"Dauer":1.07,"Farbe":"Mittel Hell"}})
 holz_info.update({"Birke":{"Kosten":1.0,"Dauer":1.04,"Farbe":"Dunkel"}})
 
+Mitarbeiter=["Albert","Richard","Thomas"]
+
 # Lookups generiert aus simulierten Daten. Für den Fall das sich was ändert, ausklammern und in  Lookup Ordner verschieben.
 if Erstelle_Lookup:
     erstelle_lookup("Holz",holz_info,"holzinfo_lookup.csv")
@@ -275,7 +277,7 @@ Wasserdruck=20
 Temp_a,Strom_a=10,30
 Temp_b,Strom_b=10,30
 Temp_c,Strom_c=10,40
-letzter_Kunde="IKEA"
+letzter_Kunde="IDEA"
 ID=int(random.random()*10000000) #Start ID
 neuer_auftrag=True
 alpha,beta,gamma=0,0,0
@@ -333,9 +335,9 @@ for i in range(kunden):
         neuer_auftrag=True
 
 
-    Temp_a,Strom_a=maschinen_daten_schreiben(Zeitstempel,"Bieberbau","alpha",i)
-    Temp_b,Strom_b=maschinen_daten_schreiben(Zeitstempel,"Spechtnest","beta", i)
-    Temp_c,Strom_c=maschinen_daten_schreiben(Zeitstempel,"Spechtnest","gamma",i)
+    Temp_a,Strom_a=maschinen_daten_schreiben(Zeitstempel,"Michael","Bieberbau","alpha",i)
+    Temp_b,Strom_b=maschinen_daten_schreiben(Zeitstempel,"Thomas","Spechtnest","beta", i)
+    Temp_c,Strom_c=maschinen_daten_schreiben(Zeitstempel,"Maria","Spechtnest","gamma",i)
     Aussentemp,Feuchtigkeit,Luftdruck,Wasserdruck=maschinen_daten_schreiben_aussen(Zeitstempel,i,Wasserdruck,False)
 
     # Abarbeiten der Maschine

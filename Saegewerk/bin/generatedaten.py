@@ -7,7 +7,7 @@ import time
 path = os.path.normpath(os.getcwd())
 splunkhome_arr=path.split(os.sep)[:-4]
 splunkhome=os.sep.join(splunkhome_arr)
-sys.path.append(os.path.join(splunkhome, 'etc', 'apps', 'Daten_Generator', 'lib'))
+sys.path.append(os.path.join(splunkhome, 'etc', 'apps', 'Saegewerk', 'lib'))
 
 from splunklib.searchcommands import dispatch, GeneratingCommand, Configuration, Option, validators 
 

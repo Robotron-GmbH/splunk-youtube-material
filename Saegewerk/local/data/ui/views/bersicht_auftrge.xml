@@ -16,7 +16,7 @@
       <fieldForLabel>Kunde</fieldForLabel>
       <fieldForValue>Kunde</fieldForValue>
       <search>
-        <query>index=auftrag
+        <query>index=auftrag 
 | table Kunde
 | dedup Kunde</query>
         <earliest>-24h@h</earliest>
@@ -72,7 +72,7 @@
     <panel>
       <table>
         <search>
-          <query>index=auftrag
+          <query>index=auftrag $tok_holz$
 | top Holz</query>
           <earliest>-24h@h</earliest>
           <latest>now</latest>

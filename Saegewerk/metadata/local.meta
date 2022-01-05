@@ -1,0 +1,157 @@
+[app/ui]
+version = 8.2.2
+modtime = 1641387849.376506600
+
+[app/launcher]
+version = 8.2.2
+modtime = 1641387849.392505400
+
+[inputs/monitor%3A%2F%2FC%3A%5CProgram%20Files%5CSplunk%5Cetc%5Capps%5CDaten_Generator%5Cdata%5CHolzfabrik.csv]
+owner = admin
+version = 8.1.3
+modtime = 1625477302.305440100
+
+[]
+access = read : [ * ], write : [ admin, power ]
+export = system
+version = 8.2.1
+modtime = 1625495665.833921400
+
+[lookups/produktinfo_lookup.csv]
+version = 8.2.1
+modtime = 1626705394.140434000
+
+[views/produktion_endanwender]
+version = 8.2.1
+modtime = 1626791909.816693300
+
+[views/splunk_schulungen]
+owner = admin
+version = 8.2.1
+modtime = 1626859776.496230500
+
+[views/daten_erzeugen]
+owner = admin
+version = 8.2.1
+modtime = 1626946303.955300900
+
+[views/anzahl_holz]
+owner = admin
+version = 8.2.1
+modtime = 1627049425.623983400
+
+[views/testdashboard]
+owner = admin
+version = 8.2.1
+modtime = 1627051990.689870200
+
+[views/schulungtest]
+owner = admin
+version = 8.2.1
+modtime = 1627480626.553523500
+
+[lookups/holzinfo_lookup.csv]
+version = 8.2.2
+modtime = 1635337434.159643500
+
+[savedsearches/Hansen%20Alarm]
+access = read : [ * ], write : [ admin, power ]
+export = none
+owner = admin
+version = 8.2.1
+modtime = 1627478825.755808100
+
+[views/maschinendaten]
+version = 8.2.2
+modtime = 1634110764.647685700
+
+[views/maschinendaten_db_studio]
+owner = admin
+version = 8.2.2
+modtime = 1634113058.077920100
+
+[datamodels/Beschleunigtes_Modell_Sgewerk]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 8.2.2
+modtime = 1634633944.508149800
+
+[models/Beschleunigtes_Modell_Sgewerk]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 8.2.2
+modtime = 1634633497.482827400
+
+[views/chart_auswahl]
+owner = admin
+version = 8.2.2
+modtime = 1634718427.850045100
+
+[props/json_Test_fileformat]
+owner = admin
+version = 8.2.2
+modtime = 1634721691.949320200
+
+[inputs/monitor%3A%2F%2FC%3A%5CProgram%20Files%5CSplunk%5Cetc%5Capps%5CDaten_Generator%5Cbin%5CJSON_Test.csv]
+owner = admin
+version = 8.2.2
+modtime = 1634721711.868681300
+
+[views/bersicht_auftrge]
+version = 8.2.2
+modtime = 1634736520.088452900
+
+[views/drilldown_bersicht]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 8.2.2
+modtime = 1634737137.737074900
+
+[savedsearches/Test_Bericht]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 8.2.2
+modtime = 1636116685.751619500
+
+[views/test_dashboard]
+owner = admin
+version = 8.2.2
+modtime = 1635260185.690561600
+
+[views/auftrge_postprocess]
+version = 8.2.2
+modtime = 1635330843.864724100
+
+[workflow_actions/WikiEintrag]
+access = read : [ * ], write : [ * ]
+export = system
+owner = admin
+version = 8.2.2
+modtime = 1635340071.080692700
+
+[datamodels/Datenmodell_Test]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 8.2.2
+modtime = 1635344336.316400700
+
+[models/Datenmodell_Test]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 8.2.2
+modtime = 1635344336.476112900
+
+[views/schulungs_dashboard]
+owner = admin
+version = 8.2.2
+modtime = 1635352780.805190600
+
+[app/package/check_for_updates]
+version = 8.2.2
+modtime = 1641387849.406483100
