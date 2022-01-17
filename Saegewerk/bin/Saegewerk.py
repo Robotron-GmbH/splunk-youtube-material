@@ -146,10 +146,7 @@ def maschinen_daten_schreiben_aussen(Zeitstempel,i,Wasserdruck,Sensehat_Vorhande
     Aussentemp=  round(math.sin(0.02*i)+random.gauss(17.4,0.3),1)
     Feuchtigkeit=  round(random.gauss(51,0.6),1)
     Wasserdruck=round(temperatur_ausreisser(i),3)    
-    if Sensehat_Vorhanden:
-        Aussentemp =round(sense.get_temperature_from_humidity(),2)
-        Feuchtigkeit=round(sense.get_humidity(),2)
-        Luftdruck  =round(sense.get_pressure(),2)
+
         
    # maschinendaten={"Zeitstempel":Zeitstempel,"Halle":"Aussenbereich","Messwert":"Aussenbereich.Aussentemperatur","Temperatur":str(Aussentemp)}
     #write_logs(file_metrics,maschinendaten)
@@ -334,10 +331,19 @@ for i in range(kunden):
         Maschine="Gamma"
         neuer_auftrag=True
 
-
-    Temp_a,Strom_a=maschinen_daten_schreiben(Zeitstempel,"Michael","Bieberbau","alpha",i)
-    Temp_b,Strom_b=maschinen_daten_schreiben(Zeitstempel,"Thomas","Spechtnest","beta", i)
-    Temp_c,Strom_c=maschinen_daten_schreiben(Zeitstempel,"Maria","Spechtnest","gamma",i)
+    if i%120==0: #Schichtwechsel
+        Benutzer=["Michael","Karl","Emilia","Tim","Sarah","Wilhelm","Emmy"]
+        
+        Benutzer_a=random.choice(Benutzer)
+        Benutzer.remove(Benutzer_a)
+        Benutzer_b=random.choice(Benutzer)
+        Benutzer.remove(Benutzer_b)
+        Benutzer_c=random.choice(Benutzer)
+        Benutzer.remove(Benutzer_c)
+        
+    Temp_a,Strom_a=maschinen_daten_schreiben(Zeitstempel,Benutzer_a,"Bieberbau","alpha",i)
+    Temp_b,Strom_b=maschinen_daten_schreiben(Zeitstempel,Benutzer_b,"Spechtnest","beta", i)
+    Temp_c,Strom_c=maschinen_daten_schreiben(Zeitstempel,Benutzer_c,"Spechtnest","gamma",i)
     Aussentemp,Feuchtigkeit,Luftdruck,Wasserdruck=maschinen_daten_schreiben_aussen(Zeitstempel,i,Wasserdruck,False)
 
     # Abarbeiten der Maschine
