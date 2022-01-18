@@ -1,0 +1,376 @@
+{
+    "partition": "2018/14",
+    "ProgrammVersion": 1.84,
+    "Hersteller": "Stark Industry",
+    "Datum": 1522929855.0,
+    "Produkt": "Iron Man Suite",
+    "Typ": "Hulk",
+    "Schieber": 25,
+    "Schieber-Unit": "[l/min]",
+    "Ditherfrequenz": 50,
+    "Ditherfrequenz-Unit": "[Hz]",
+    "Ditheramplitude": 500,
+    "Spannung": 12,
+    "Spannung-Unit": "[V]",
+    "X-Achse/Einheit": "I",
+    "X-Achse/Einheit-Unit": "[mA]",
+    "Imin": 360,
+    "Imin-Unit": "[mA]",
+    "Imax": 1200,
+    "Imax-Unit": "[mA]",
+    "Y-Achse/Einheit": "Q_A_B_VS04",
+    "Y-Achse/Einheit-Unit": "[l/min]",
+    "Y1min": 0,
+    "Y1min-Unit": "[l/min]",
+    "Y1max": 30,
+    "Y1max-Unit": "[l/min]",
+    "Regelbeginn": 523,
+    "Regelbeginn-Unit": "[mA]",
+    "Regelende": 423,
+    "Regelende-Unit": "[mA]",
+    "Y_Anfahrsprung": 1.518,
+    "Y_Anfahrsprung-Unit": "[l/min]",
+    "Regelmaximum": 1071,
+    "Regelmaximum-Unit": "[mA]",
+    "X_YmaxPrz": 967,
+    "X_YmaxPrz-Unit": "[mA]",
+    "Status": "gut",
+    "Ausgang": 1,
+    "Versorgungssp": 13.7,
+    "Versorgungssp-Unit": "[V]",
+    "Baugruppe": "PSL",
+    "Eingangssektion": 2,
+    "pA_1": 117,
+    "pA_1-Unit": "[bar]",
+    "pB_1": 16,
+    "pB_1-Unit": "[bar]",
+    "pA_Qnenn": 182,
+    "pA_Qnenn-Unit": "[bar]",
+    "pB_Qnenn": 22,
+    "pB_Qnenn-Unit": "[bar]",
+    "pP_1": 139,
+    "pP_1-Unit": "[bar]",
+    "pP_Qnenn": 208,
+    "pP_Qnenn-Unit": "[bar]",
+    "Pruefer": "Black Widow",
+    "Datenreihe": "I [mA]; Q_B_C_AS04 [l/min]; t [ms]; Hall",
+    "Bemerkungen": null,
+    "Messwerte": {
+        "Header": [
+            {
+                "Measurement": "I",
+                "Unit": "mA"
+            },
+            {
+                "Measurement": "Q_B_C_AS04",
+                "Unit": "l/min"
+            },
+            {
+                "Measurement": "t",
+                "Unit": "ms"
+            },
+            {
+                "Measurement": "Hall"
+            }
+        ],
+        "Columns": 4,
+        "Rows": 1676,
+        "Values": [
+            [
+                353,
+                0,
+                40,
+                0
+            ],
+            [
+                355,
+                0,
+                119,
+                0
+            ],
+            [
+                358,
+                0,
+                160,
+                0
+            ],
+            [
+                355,
+                0,
+                179,
+                0
+            ],
+            [
+                358,
+                0,
+                240,
+                0
+            ],
+            [
+                361,
+                0,
+                260,
+                0
+            ],
+            [
+                363,
+                0,
+                320,
+                0
+            ],
+            [
+                366,
+                0,
+                340,
+                0
+            ],
+            [
+                368,
+                0,
+                400,
+                0
+            ],
+            [
+                371,
+                0,
+                420,
+                0
+            ],
+            [
+                374,
+                0,
+                440,
+                0
+            ],
+            [
+                376,
+                0,
+                480,
+                0
+            ],
+            [
+                379,
+                0,
+                540,
+                0
+            ],
+            [
+                382,
+                0,
+                560,
+                0
+            ],
+            [
+                384,
+                0,
+                600,
+                0
+            ],
+            [
+                387,
+                0,
+                620,
+                0
+            ],
+            [
+                389,
+                0,
+                660,
+                0
+            ],
+            [
+                392,
+                0,
+                700,
+                0
+            ],
+            [
+                395,
+                0,
+                720,
+                0
+            ],
+            [
+                397,
+                0,
+                759,
+                0
+            ],
+            [
+                400,
+                0,
+                780,
+                0
+            ],
+            [
+                402,
+                0,
+                820,
+                0
+            ],
+            [
+                405,
+                0,
+                840,
+                0
+            ],
+            [
+                408,
+                0,
+                901,
+                0
+            ],
+            [
+                410,
+                0,
+                920,
+                0
+            ],
+            [
+                413,
+                0,
+                941,
+                0
+            ],
+            [
+                415,
+                0,
+                981,
+                0
+            ],
+            [
+                418,
+                0,
+                1021,
+                0
+            ],
+            [
+                421,
+                0,
+                1061,
+                0
+            ],
+            [
+                423,
+                0,
+                1100,
+                0
+            ],
+            [
+                426,
+                0,
+                1161,
+                0
+            ],
+            [
+                429,
+                0,
+                1181,
+                0
+            ],
+            [
+                426,
+                0,
+                1220,
+                0
+            ],
+           
+            [
+                671,
+                7.647,
+                13430,
+                0
+            ],
+            [
+                674,
+                7.689,
+                13470,
+                0
+            ],
+            [
+                671,
+                7.731,
+                13490,
+                0
+            ],
+            [
+                674,
+                7.728,
+                13510,
+                0
+            ],
+            [
+                674,
+                7.755,
+                13531,
+                0
+            ],
+            [
+                674,
+                7.767,
+                13550,
+                0
+            ],
+            [
+                677,
+                7.788,
+                13570,
+                0
+            ]
+          
+        ]
+    },
+    "_id": "12be12ea-15c9-1234-9b53-e852lqps8e3f8",
+    "Pruefoel": "DFE21OP",
+    "ParaSatzNr": 2123,
+    "Auftragsnr": 4315,
+    "Seriennr": "9-13318-8712-f",
+    "Kommissionsnr": "532410 030 003",
+    "Oeltemperatur": 29.7,
+    "Pruefdauer": 37.75,
+    "Pruefdauer-Unit": "[s]",
+    "Pruefstand": "PSL3_7",
+    "Widerstand_R20": 7,
+    "Widerstand_R20-Unit": "[Ohm]",
+    "Steigung_AUF1": 80,
+    "Steigung_AUF1-Unit": "[mA/s]",
+    "Steigung_AUF2": 20,
+    "Steigung_AUF2-Unit": "[mA/s]",
+    "Steigung_AUF3": 60,
+    "Steigung_AUF3-Unit": "[mA/s]",
+    "Steigung_AB1": 60,
+    "Steigung_AB1-Unit": "[mA/s]",
+    "Eckpunkt_AUF1": 430,
+    "Eckpunkt_AUF1-Unit": "[mA]",
+    "Eckpunkt_AUF2": 720,
+    "Eckpunkt_AUF2-Unit": "[mA]",
+    "Eckpunkt_AUF3": 1100,
+    "Eckpunkt_AUF3-Unit": "[mA]",
+    "Eckpunkt_AB1": 360,
+    "Eckpunkt_AB1-Unit": "[mA]",
+    "Y1_max_Ist": 25.44,
+    "Y1_max_Ist-Unit": "[l/min]",
+    "max_P_L": 184,
+    "max_P_L-Unit": "[bar]",
+    "Anschlussbl_P": 250,
+    "Anschlussbl_P-Unit": "[bar]",
+    "Anschlussbl_Q": 17.3,
+    "Anschlussbl_Q-Unit": "[l/min]",
+    "p_A_B_<_1": 125,
+    "p_A_B_<_1-Unit": "[bar]",
+    "p_Last": 0.5,
+    "p_Last-Unit": "[bar]",
+    "Parametersatz_vom": "2013-09-05T00:00:00",
+    "Seriennr_Ventil": "2-4318-8761",
+    "Positionsnr_in_Batt": 2,
+    "max_Hysterese_dx": 31,
+    "max_Hysterese_dx-Unit": "[mA]",
+    "Y_bei_max_Hysterese": 3.74,
+    "Y_bei_max_Hysterese-Unit": "[l/min]",
+    "max_Hysterese_dy": 2.91,
+    "max_Hysterese_dy-Unit": "[l/min]",
+    "X_bei_max_Hysterese": 117,
+    "X_bei_max_Hysterese-Unit": "[mA]",
+    "Geraete_Typ": "XOQ",
+    "Baugroesse": 3
+}
