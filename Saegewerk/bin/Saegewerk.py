@@ -124,12 +124,24 @@ def temperatur_ausreisser(x):
 
 
 def maschinen_daten_schreiben(Zeitstempel,Mitarbeiter,Halle,Maschine,i):
-    Temp= round(2*math.sin(0.4*i)+random.gauss(40,1),2)
-    Strom=  round(math.sin(0.2*i)+random.gauss(10,1),3)
+    
+    if Maschine=="alpha":
+        Temp= round(10*math.sin(0.4*i)+random.gauss(42,1),2)
+        Strom=  round(10*math.sin(0.2*i)+random.gauss(10,1),3)
+        if Zeitstempel%60<2:
+            Temp=Temp+random.gauss(60,10)
+    if Maschine=="beta":
+        Temp= round(11*math.sin(0.45*i)+random.gauss(40,1),2)
+        Strom=    round(20*math.sin(0.15*i)+random.gauss(10,1),3)  
+        if Zeitstempel%50<2:
+            Temp=Temp+random.gauss(50,10)  
+    if Maschine=="gamma":
+        Temp= round(9*math.sin(0.35*i)+random.gauss(38,1),2)
+        Strom=    round(40*math.sin(0.25*i)+random.gauss(10,1),3)
+        if Zeitstempel%70<2:
+            Temp=Temp+random.gauss(70,10)
 
-    # einmal in der Minute steigt die Temperatur auf über 100 Grad.
-    if Zeitstempel%60<2:
-        Temp=Temp+61
+
     
     #maschinendaten={"Zeitstempel":Zeitstempel,"Halle":Halle,"Messwert":Halle+"."+Maschine+".Temperatur","Temperatur":str(Temp)}
     write_logs_array(file_metrics,[Zeitstempel,Mitarbeiter,Halle+"."+Maschine+".Temperatur",str(Temp)])
@@ -142,10 +154,10 @@ def maschinen_daten_schreiben(Zeitstempel,Mitarbeiter,Halle,Maschine,i):
 
 
 def maschinen_daten_schreiben_aussen(Zeitstempel,i,Wasserdruck,Sensehat_Vorhanden):
-    Luftdruck= round(random.gauss(1012,0.8),2)
-    Aussentemp=  round(math.sin(0.02*i)+random.gauss(17.4,0.3),1)
+    Luftdruck=     round(random.gauss(1012,0.8),2)
+    Aussentemp=    round(math.sin(0.02*i)+random.gauss(17.4,0.3),1)
     Feuchtigkeit=  round(random.gauss(51,0.6),1)
-    Wasserdruck=round(temperatur_ausreisser(i),3)    
+    Wasserdruck=   round(temperatur_ausreisser(i),3)    
 
         
    # maschinendaten={"Zeitstempel":Zeitstempel,"Halle":"Aussenbereich","Messwert":"Aussenbereich.Aussentemperatur","Temperatur":str(Aussentemp)}
