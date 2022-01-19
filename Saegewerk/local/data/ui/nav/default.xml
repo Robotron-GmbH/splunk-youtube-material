@@ -27,6 +27,8 @@
             <collection label="Dashboard Studio">
                 <view name="dashboard_studio_minimalbsp" />
                 <view name="maschinendaten_db_studio" />
+                <view name="maschinen_berwachung" />
+
             </collection>
     </collection>
       <view name="splunk_schulungen"/>
