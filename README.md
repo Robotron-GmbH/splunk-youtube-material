@@ -14,9 +14,9 @@ Ihr habt Wunschthemen, Ideen oder Fragen? Dann schickt mir eine E-Mail.
 1. Den kompletten Ordner Saegewewerk herrunterladen und gegebnenfalls entpacken.
 2. Den Ordner anschließend in den SPLUNK/etc/apps Ordner verschieben. Unter Windows findet man Splunk meistens unter C:\Program Files\.
 3. Splunk neustarten. Hierbei unter Einstellungen -> Serversteuerungen -> Splunk neustarten gehen.
-4. Anschließend kann man mit dem Befehl   
+4. Die Daten können dann über das Dashboard 'Daten_Erzeugen' erstellt werden. Dies findet man in der Menüleiste unter 'Sägewerk_Aufträge'. Alternativ kann man mit dem Befehl   
  ``` | generatedaten seconds_running=X``` 
-   wobei X die Laufzeit des Skriptes in Sekunden angibt. Z.b. seconds_running=3600 für eine 1h Laufzeit. Alternativ kann man auch das Dashboard Sägewerk aufrufen und sich dort die gewünschten Daten erzeugen lassen.
+   wobei X die Laufzeit des Skriptes in Sekunden angibt. Z.b. seconds_running=3600 für eine 1h Laufzeit. 
 5. Die Daten können dann mit ```index=auftrag``` abgerufen werden. Ebenfalls gibt es metrische Daten unter dem Index Maschinen welche im Analytics Store zu finden sind.  
 
 ### Daten
