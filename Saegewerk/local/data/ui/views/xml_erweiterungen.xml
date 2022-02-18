@@ -1,0 +1,119 @@
+<form theme="dark">
+  <init>
+    <set token="tok_time.earliest">-15m</set>
+  </init>
+  <label>XML Erweiterungen</label>
+  <search id="search_umsatz_max">
+    <query>
+index=auftrag 
+| where Umsatz &gt; 200 | table *
+</query>
+    <earliest>$tok_time_minutes$</earliest>
+    <latest>now</latest>
+    <progress>
+      <condition match="'job.resultCount'&gt;5">
+        <set token="show_chart_umsatz">true</set>
+      </condition>
+      <condition>
+        <unset token="show_chart_umsatz"></unset>
+      </condition>
+    </progress>
+  </search>
+  <fieldset submitButton="true" autoRun="false">
+    <input type="text" token="tok_time_minutes" searchWhenChanged="false">
+      <label>Letzten X Minuten</label>
+      <prefix>-</prefix>
+      <suffix>m</suffix>
+      <initialValue>15</initialValue>
+      <default>15</default>
+    </input>
+    <input type="dropdown" token="tok_auftragid" searchWhenChanged="false">
+      <label>AuftragsID</label>
+      <choice value="*">Alle</choice>
+      <fieldForLabel>AuftragsID</fieldForLabel>
+      <fieldForValue>AuftragsID</fieldForValue>
+      <search>
+        <query>index=auftrag
+| table AuftragsID
+| dedup AuftragsID</query>
+        <earliest>$tok_time_minutes$</earliest>
+        <latest>now</latest>
+      </search>
+      <change>
+        <condition label="Alle">
+          <unset token="tok_show_piechart"></unset>
+        </condition>
+        <condition>
+          <set token="tok_show_piechart">1</set>
+        </condition>
+      </change>
+      <default>*</default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <title>Durchschnittlicher Umsatz</title>
+      <chart>
+        <search>
+          <query>index=auftrag
+|timechart avg(Umsatz)</query>
+          <earliest>$tok_time_minutes$</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="charting.chart">line</option>
+        <option name="charting.chart.nullValueMode">connect</option>
+        <option name="charting.drilldown">none</option>
+        <option name="height">319</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+    <panel>
+      <title>Mehrfachaufträge</title>
+      <table>
+        <search>
+          <query>index=auftrag
+| stats count as Anzahl by AuftragsID
+| where Anzahl &gt; 1
+| sort -Anzahl</query>
+          <earliest>$tok_time_minutes$</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="drilldown">cell</option>
+        <option name="refresh.display">progressbar</option>
+        <drilldown>
+          <set token="form.tok_auftragid">$row.AuftragsID$</set>
+        </drilldown>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel depends="$tok_show_piechart$">
+      <title>Anteile Mehrfachauftrag</title>
+      <chart>
+        <search>
+          <query>index=auftrag $default:tok_auftragid$
+| streamstats count
+| eval Info=Produkt+" "+Holz+" "+count
+| table Info Umsatz</query>
+          <earliest>$tok_time_minutes$</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="charting.chart">pie</option>
+        <option name="charting.chart.showPercent">true</option>
+        <option name="charting.drilldown">none</option>
+                <option name="charting.fieldColors">[0xffffff]</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+    <panel depends="$show_chart_umsatz$">
+      <title>Anzahl Aufträge mit mehr als 200 Euro Umsatz (mindestens 5)</title>
+      <chart>
+        <search base="search_umsatz_max">
+          <query>| stats count as Anzahl by Kunde</query>
+        </search>
+        <option name="charting.chart">column</option>
+        <option name="charting.drilldown">none</option>
+      </chart>
+    </panel>
+  </row>
+</form>
