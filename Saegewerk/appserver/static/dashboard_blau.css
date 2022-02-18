@@ -1,0 +1,32 @@
+.dashboard-body {
+	padding: 0 20px 15px 20px;
+	background-color: #1e34b4;
+	min-height: 500px;
+}
+
+.splunk-timerange div button[type="button"]{
+	background-color: rgb(0, 255, 85);
+}
+
+.dashboard-title {
+	margin: 10px 0;
+	font-size: 50px;
+	font-family: inherit;
+	font-weight: 500;
+	line-height: 20px;
+	text-transform: none;
+	color: #ffbf00;
+	text-rendering: optimizelegibility;
+}
+
+.table-striped.table-chrome > tbody > tr:nth-child(2n+1) > td {
+	background-color: #169cdd66;
+}
+
+table-striped.table-chrome > tbody > tr:nth-child(2n).even > td {
+	background-color: #75a2f9;
+}
+
+.table-chrome > thead > tr > th {
+	background-color: #3081a8;	
+}
