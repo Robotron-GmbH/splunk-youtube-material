@@ -1,5 +1,11 @@
-<form theme="dark" script="corporatedesign.js" stylesheet="dashboard_blau.css">
-  <label>Übersicht Aufträge (Corporate Design)</label>
+<form theme="dark" script="translations.js">
+<init>
+<set token="i18n_holz"    i18ntag="">Holz</set>
+<set token="i18n_produkt" i18ntag="">Produkt</set>
+<set token="i18n_umsatz"  i18ntag="">Umsatz</set>
+<set token="i18n_kunde"  i18ntag="">Kunde</set>
+</init>
+  <label>Übersicht Aufträge (Übersetzungen)</label>
   <fieldset submitButton="false">
     <input type="time" token="tok_time">
       <label>Zeitangabe</label>
@@ -8,7 +14,7 @@
         <latest>now</latest>
       </default>
     </input>
-    <input type="dropdown" token="tok_Kunde" id="tok_kunde_id">
+    <input type="dropdown" token="tok_Kunde">
       <label>Kundenauswahl</label>
       <choice value="*">Alle</choice>
       <default>*</default>
@@ -23,7 +29,7 @@
         <latest>now</latest>
       </search>
     </input>
-    <input type="multiselect" token="tok_holz" id="tok_holz_id">
+    <input type="multiselect" token="tok_holz">
       <label>Holz</label>
       <choice value="*">Alle</choice>
       <default>*</default>
@@ -60,7 +66,12 @@
           <query>index=auftrag $tok_holz$ $tok_Kunde$
 | sort -_time
 | head 3
-| table _time,Kunde, Holz, Produkt, Umsatz</query>
+| table _time,Kunde, Holz, Produkt, Umsatz
+| rename Holz as $i18n_holz$
+| rename Produkt as $i18n_produkt$
+| rename Umsatz as $i18n_umsatz$
+| rename Kunde as $i18n_kunde$
+</query>
           <earliest>-24h@h</earliest>
           <latest>now</latest>
         </search>
