@@ -1,0 +1,3 @@
+Type,ID,Dashboard,Hilfetext
+Input,tok_kunde_id,bersicht_auftrge_frontendkurs,"Auswahl der Kunden"
+Input,tok_holz_id,bersicht_auftrge_frontendkurs,"Auswahl des Holzes"
