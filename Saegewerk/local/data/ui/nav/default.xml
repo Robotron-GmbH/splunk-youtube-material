@@ -5,10 +5,9 @@
   <view name="reports" />
   <view name="alerts" />
   <view name="dashboards" />
- 
+
     <!-- Use the collection tag to create a list of items -->
     <collection label="Sägewerk Dashboards">
-
         <!-- Add items to the list -->
         <view name="daten_erzeugen"/>
         <view name="bersicht_auftrge" />
@@ -28,9 +27,11 @@
                 <view name="dashboard_studio_minimalbsp" />
                 <view name="maschinendaten_db_studio" />
                 <view name="maschinen_berwachung" />
-
             </collection>
+            <collection label="Frontendkurs">
+                <view name="bersicht_auftrge_frontendkurs" />
+            </collection>
+
     </collection>
       <view name="splunk_schulungen"/>
-
 </nav>

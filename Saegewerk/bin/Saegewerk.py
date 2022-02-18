@@ -5,6 +5,7 @@ Created on Wed Mar 18 11:09:31 2020
 @author: stephan.fuchs
 
 """
+from platform import machine
 import sys
 import os
 sys.path.insert(0, "..")
@@ -18,7 +19,11 @@ import math
 
 Erstelle_Lookup=False
 
-kunden=int(sys.argv[1])     #Anzahl der Sekunden wie lange das Skript laufen soll 
+
+try: 
+    kunden=int(sys.argv[1])     #Anzahl der Sekunden wie lange das Skript laufen soll 
+except:
+    kunden=10
 
 def zufalls_ip():
     #return str(np.random.randint(255, size=1)[0])+"."+str(np.random.randint(255, size=1)[0])+"."+str(np.random.randint(255, size=1)[0])+"."+str(np.random.randint(255, size=1)[0])
@@ -104,6 +109,29 @@ def auftrag(kunden_arr,verhaltnis_auftrage):
     return [kunde,Produkt,Holz]
 
 
+def prozess_ablauf(auftragsnummer,zeitstempel,maschine,Lager):
+    
+    file="Prozesskette.csv" #Zeit, Auftragsnummer, Prozesschritt, Maschine
+    bohrer=  random.choice(["Bohrer_1","Bohrer_2","Bohrer_3","Bohrer_4"])
+    politur=   random.choice(["Politur_1","Politur_2","Politur_3"])
+    verpackung=random.choice(["Verpackung-1","Verpackung-2","Verpackung-3","Verpackung-4","Verpackung-5"])
+    Lager_Wahl=random.choice([0,1,2,3])
+    Lager_Namen=["Lagerhalle 1","Lagerhalle 2","Lagerhalle 3","Lagerhalle 4"]
+    
+    if Lager[Lager_Wahl]>10:
+        Lager[Lager_Wahl]=1
+
+    write_logs_array(file,[zeitstempel                            ,auftragsnummer,maschine,])
+    write_logs_array(file,[zeitstempel+round(random.gauss(10,3),2),auftragsnummer,bohrer,])
+    write_logs_array(file,[zeitstempel+round(random.gauss(20,3),2),auftragsnummer,politur,])
+    write_logs_array(file,[zeitstempel+round(random.gauss(40,5),2),auftragsnummer,verpackung,])
+    write_logs_array(file,[zeitstempel+round(random.gauss(60,5),2),auftragsnummer,Lager_Namen[Lager_Wahl],Lager[Lager_Wahl]])
+
+
+    Lager[Lager_Wahl]=Lager[Lager_Wahl]+1
+    
+    return Lager
+
 def Zufallszahlen(start,abweichung):
     #ausgabe=start+num_ra.normal(0,abweichung)    
     ausgabe=start+random.gauss(0,abweichung)
@@ -141,8 +169,6 @@ def maschinen_daten_schreiben(Zeitstempel,Mitarbeiter,Halle,Maschine,i):
         if Zeitstempel%70<2:
             Temp=Temp+random.gauss(70,10)
 
-
-    
     #maschinendaten={"Zeitstempel":Zeitstempel,"Halle":Halle,"Messwert":Halle+"."+Maschine+".Temperatur","Temperatur":str(Temp)}
     write_logs_array(file_metrics,[Zeitstempel,Mitarbeiter,Halle+"."+Maschine+".Temperatur",str(Temp)])
 
@@ -201,8 +227,18 @@ else:
     output_file.close()
 
 
-file_metrics="Holzfabrik_Maschinen.csv"
+file_prozesskette="Prozesskette.csv"
+##print("Datei wird hier gespeichert: ",file_index)
+if os.path.isfile(file_prozesskette):
+    #print("Datei Holzfabrik vorhanden")
+    pass
+else:
+    output_file = open(file_prozesskette, 'w')
+    output_file.write("_time, Auftragsnummer, Prozessschritt,Lager\n")
+    output_file.close()
 
+
+file_metrics="Holzfabrik_Maschinen.csv"
 if os.path.isfile(file_metrics):
     #print("Datei File Metrics vorhanden")
     pass
@@ -287,11 +323,11 @@ Temp_a,Strom_a=10,30
 Temp_b,Strom_b=10,30
 Temp_c,Strom_c=10,40
 letzter_Kunde="IDEA"
-ID=int(random.random()*10000000) #Start ID
+ID=zufalls_ID()
 neuer_auftrag=True
 alpha,beta,gamma=0,0,0
 Maschine="Alpha"
-
+Lager=[0,1,2,3]
 
 for i in range(kunden):
     
@@ -303,7 +339,7 @@ for i in range(kunden):
     
     if (neuer_auftrag):
         kunde_aus=auftrag(kunden_arr,verhaltnis_auftrage)
-        ##print("kundeaus",kunde_aus)
+        #print("kundeaus",kunde_aus)
     
         if letzter_Kunde==kunde_aus[0]:
             #print("Sammelauftrag:", ID, "aktueller Kunde:",kunde_aus[0]," Letzter Kunde:",letzter_Kunde)
@@ -324,7 +360,8 @@ for i in range(kunden):
         #write_logs(file_index,aktueller_auftrag)
         write_logs_array(file_index,[kunde_aus[0],kunde_aus[1],kunde_aus[2],ID, Maschine,auftragsdauer,Time,umsatz,gewicht])
 
-             
+        Lager=prozess_ablauf(ID,Zeitstempel,Maschine,Lager)
+
 
     #Welche Maschine als nächstes Ausgewählt wird
     neuer_auftrag=False
@@ -357,6 +394,7 @@ for i in range(kunden):
     Temp_b,Strom_b=maschinen_daten_schreiben(Zeitstempel,Benutzer_b,"Spechtnest","beta", i)
     Temp_c,Strom_c=maschinen_daten_schreiben(Zeitstempel,Benutzer_c,"Spechtnest","gamma",i)
     Aussentemp,Feuchtigkeit,Luftdruck,Wasserdruck=maschinen_daten_schreiben_aussen(Zeitstempel,i,Wasserdruck,False)
+
 
     # Abarbeiten der Maschine
     alpha=alpha-1

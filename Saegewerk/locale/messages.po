@@ -1,0 +1,738 @@
+# Translations template for PROJECT.
+# Copyright (C) 2022 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2022-02-15 14:55+0100\n"
+"PO-Revision-Date: 2022-02-15 15:00+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+"X-Generator: Poedit 3.0\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
+
+#. input/choice
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/metriken_sgewerk.xml:28
+msgid "10m"
+msgstr ""
+
+#. input/choice
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/metriken_sgewerk.xml:24
+msgid "10s"
+msgstr ""
+
+#. input/choice
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/metriken_sgewerk.xml:30
+msgid "1h"
+msgstr ""
+
+#. input/choice
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/metriken_sgewerk.xml:26
+msgid "1m"
+msgstr ""
+
+#. input/choice
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/metriken_sgewerk.xml:29
+msgid "30m"
+msgstr ""
+
+#. input/choice
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/metriken_sgewerk.xml:25
+msgid "30s"
+msgstr ""
+
+#. input/choice
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/metriken_sgewerk.xml:27
+msgid "5m"
+msgstr ""
+
+#. input/choice
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/metriken_sgewerk.xml:23
+msgid "5s"
+msgstr ""
+
+#. html
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/splunk_schulungen.xml:5
+msgid ""
+"<div class=\"text-container\"><h2 class=\"text-left\">Die Datenintegrations- "
+"und Analyseplattform verstehen und anwenden</h2><div class=\"text-content"
+"\"><div><p>IT-Systeme und Technologieinfrastrukturen, wie Websites, "
+"Anwendungen, Server, Netzwerke, Sensoren, Mobilger&#228;te sowie Anlagen "
+"erzeugen permanent einen massiven Datenstrom. Mit Splunk Enterprise haben "
+"Sie die M&#246;glichkeit, einen vollst&#228;ndigen &#220;berblick &#252;ber "
+"alle relevanten Daten aus s&#228;mtlichen Systemen, Ger&#228;ten und "
+"Interaktionen Ihres Unternehmens zu erhalten &#8211; in Echtzeit.</p><p>Wir "
+"machen Sie fit f&#252;r den Einsatz der Plattform f&#252;r Operational "
+"Intelligence &#8211; mit verschiedenen Splunk-Schulungen und Kursniveaus, "
+"die auf Ihre Kenntnisse sowie Anwendungsgebiete zugeschnitten sind.</p></"
+"div></div></div><div class=\"text-content\"><ul><div><p><li>Der "
+"<strong>Grundlagenkurs </strong>vermittelt die wesentlichen Kenntnisse "
+"f&#252;r das Arbeiten mit der Technologie, wie den Bedienelementen, "
+"Funktionen, den Grundlagen der abfrageorientierten Suche und ersten Ans&#228;"
+"tzen zur Analyse und dem Reporting.</li></p><p><li>Systemadministratoren "
+"besch&#228;ftigen sich im <strong>Administrationskurs </strong>vor allem "
+"vertieft mit der Splunk-Architektur, insbesondere einer verteilten "
+"Clusterl&#246;sung. Dort lernen sie zentrale Aspekte zur Verwaltung von "
+"Speicherstrukturen, zur Lizensierung sowie zur Nutzer- und "
+"Zugriffsadministration kennen und anwenden. Performance-Optimierung, "
+"Troubleshooting sowie Best Practices runden den praxisorientierten Kurs ab.</"
+"li></p><p><li>Das <strong>Splunk IoT Bootcamp</strong> behandelt klassische "
+"IoT-Anwendungsf&#228;lle und zeigt die M&#246;glichkeiten zum Einsatz der "
+"Technologie f&#252;r typische Analysefragestellungen im Bereich von "
+"Industrie 4.0 &#8211; z.B. die Maschinendatenerfassung in Echtzeit, die "
+"Zustands&#252;berwachung oder Anomalieerkennung mittels Machine Learning.</"
+"li></p><p><li>Der <strong>Frontend-Kurs</strong> richtet sich an Splunk-"
+"Entwickler, die mit Splunk-Bordmitteln das Frontend hinsichtlich Design, "
+"Funktionalit&#228;t und Bedienbarkeit erweitern wollen. Lernen Sie dabei mit "
+"Hilfe von JavaScript, HTML und CSS ihre Dashboards interaktiv und "
+"individuell zu gestalten. Wenden Sie Ihre neugewonnen Kenntnisse an, um die "
+"Corporate Design Vorschriften Ihres Unternehmens anzupassen, mehrsprachige "
+"Dashboards zu erstellen oder informative Custom Visualisations zu erstellen."
+"</li></p></div></ul></div>\n"
+"Alle weiteren Informationen finden Sie hier:\n"
+"\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.robotron.de/schulungszentrum/splunk"
+"\" class=\"btn btn-secondary my-2\" role=\"button\">Link</a>"
+msgstr ""
+
+#: C:/Program Files/Splunk/etc/apps/Saegewerk/local/props.conf:10
+msgid ""
+"A variant of the JSON source type, with support for nonexistent timestamps"
+msgstr ""
+
+#. input/choice
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/anzahl_holz.xml:21
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/anzahl_holz.xml:32
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/anzahl_holz.xml:43
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/anzahl_holz.xml:56
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/anzahl_holz.xml:70
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/bersicht_auftrge.xml:13
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/bersicht_auftrge.xml:28
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/produktion_endanwender.xml:16
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/produktion_endanwender.xml:32
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungs_dashboard.xml:13
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungs_dashboard.xml:27
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungtest.xml:13
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/test_inventx.xml:13
+msgid "Alle"
+msgstr ""
+
+#. html
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/daten_erzeugen.xml:11
+msgid ""
+"Anmerkungen:\n"
+"        Unter Umständen kann es sein das eine Fehlermeldung erscheint. Das "
+"Skript läuft aber trotzdem im Hintergrund weiter."
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/produktion_endanwender.xml:63
+msgid "Annotation Übung"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/annotations.xml:2
+msgid "Annotations"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/bersicht_auftrge.xml:146
+msgid "Anzahl Holzarten über Zeit"
+msgstr ""
+
+#. option
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungtest.xml:127
+msgid "Anzahl von Alle Aufträge"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/produktion_endanwender.xml:50
+msgid "Anzahlaufträge pro Holz"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/chart_auswahl.xml:44
+msgid "Area Chart"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/bersicht_auftrge.xml:160
+msgid "Aufteilung Kunde nach Aufträgen"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/drilldown_bersicht.xml:99
+msgid "Aufteilung nach Produkt für Holz: $tok_holz$"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/auftrge_postprocess.xml:12
+msgid "Aufträge PostProcess"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/chart_auswahl.xml:73
+msgid "Bar Chart"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/metriken_sgewerk.xml:41
+msgid "Bieberbau.alpha.Strom, Bieberbau.beta.Strom, Spechtnest.gamma.Strom"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/chart_auswahl.xml:115
+msgid "Blasendiagramm"
+msgstr "Bubble Diagram"
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/chart_auswahl.xml:198
+msgid "Cloropleth Map"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/chart_auswahl.xml:214
+msgid "Cluster Map"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungtest.xml:77
+msgid "Columchart Test"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/chart_auswahl.xml:58
+msgid "Column Chart"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungs_dashboard.xml:60
+msgid "Dashboard Erweiterungen - Mehrfach Auswahl (mit Multiselect Auswahl)"
+msgstr ""
+
+#: C:/Program Files/Splunk/etc/apps/Saegewerk/local/data/ui/nav/default.xml
+msgid "Dashboard Studio"
+msgstr ""
+
+#: C:/Program Files/Splunk/etc/apps/Saegewerk/local/data/ui/nav/default.xml
+msgid "Dashboards für Übungen"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/daten_erzeugen.xml:2
+msgid "Daten_Erzeugen"
+msgstr ""
+
+#: C:/Program Files/Splunk/etc/apps/Saegewerk/default/app.conf:10
+msgid "Daten_Generator"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/drilldown_bersicht.xml:2
+msgid "Drilldown Übersicht"
+msgstr "Drilldown Overview"
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/produktion_endanwender.xml:123
+msgid "Drilldown Übung Eingabe"
+msgstr "Drilldown Exercise Input"
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/produktion_endanwender.xml:141
+msgid "Drilldown Übung Ergebnis"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/anzahl_holz.xml:24
+msgid "Dropdown"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/chart_auswahl.xml:162
+msgid "Füllstandsanzeige"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/produktion_endanwender.xml:65
+msgid "Gewicht des Produktes: $tok_produkt$"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/bersicht_auftrge.xml:86
+msgid "Gewicht gegen Summe Umsatz"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/auftrge_postprocess.xml:16
+msgid "Größter Sammelauftrag über die Zeit"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/bersicht_auftrge.xml:27
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungs_dashboard.xml:12
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/test_inventx.xml:12
+msgid "Holz"
+msgstr ""
+
+#: C:/Program Files/Splunk/etc/apps/Saegewerk/local/workflow_actions.conf:5
+msgid "Holzinfo $Holz$"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/produktion_endanwender.xml:143
+msgid "Holzverteilung für $tok_kunde_tabelle$"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/anzahl_holz.xml:75
+msgid "Häufigkeit Holz"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/anzahl_holz.xml:35
+msgid "Kontrollkästchen (Checkbox)"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/test_dashboard.xml:19
+msgid "Kuchen"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/chart_auswahl.xml:86
+msgid "Kuchendiagramm"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/produktion_endanwender.xml:31
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungs_dashboard.xml:26
+msgid "Kunde"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/bersicht_auftrge.xml:12
+msgid "Kundenauswahl"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/daten_erzeugen.xml:5
+msgid "Laufzeit in Sekunden"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/chart_auswahl.xml:31
+msgid "Liniendiagramm"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/drilldown_bersicht.xml:27
+msgid "Link zu Dashboard Übersicht inklusive Tokenübergabe von Holz (tok_holz)"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/drilldown_bersicht.xml:52
+msgid "Link zu Wikipedia für die Holzart"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/drilldown_bersicht.xml:7
+msgid "Link zur Suche Automatisch"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/anzahl_holz.xml:62
+msgid "Linkliste"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/auftrge_postprocess.xml:58
+msgid "Längsten Aufträge pro Kunde"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/chart_auswahl.xml:179
+msgid "Marker Gauge"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/maschinen_berwachung.xml:3
+msgid "Maschinen Überwachung"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/maschinendaten_db_studio.xml:3
+msgid "Maschinendaten_DB_Studio"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/anzahl_holz.xml:48
+msgid "Mehrfachauswahl (Multiselect)"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/metriken_sgewerk.xml:2
+msgid "Metriken_Sägewerk"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/metriksuche.xml:2
+msgid "Metriksuche"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/dashboard_studio_minimalbsp.xml:3
+msgid "Minimal Beispiel"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/test_inventx.xml:87
+msgid "Mittelwert Gewicht"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/anzahl_holz.xml:12
+msgid "Optionsfeld (Radio)"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/produktion_endanwender.xml:15
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungtest.xml:12
+msgid "Produkt"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungs_dashboard.xml:93
+msgid "Produktauswahl für Kunde $tok_kunde_tabelle$"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungs_dashboard.xml:62
+msgid "Produkte"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/testdashboard.xml:48
+msgid "Produktinfo"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/chart_auswahl.xml:144
+msgid "Radical Gauge"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/svg_speichern.xml:3
+msgid "SVG_Speichern"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/chart_auswahl.xml:99
+msgid "Scatter Chart"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungs_dashboard.xml:2
+msgid "Schulungs_Dashboard"
+msgstr ""
+
+#: C:/Program Files/Splunk/etc/apps/Saegewerk/local/searchbnf.conf:3
+#: Files/Splunk/etc/apps/Saegewerk/local/searchbnf.conf:4
+msgid "Simuliere Sägewerkdaten"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/chart_auswahl.xml:131
+msgid "Single Value"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/splunk_schulungen.xml:2
+msgid "Splunk Schulungen"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/chart_auswahl.xml:17
+msgid "Statistics Table"
+msgstr ""
+
+#: C:/Program Files/Splunk/etc/apps/Saegewerk/local/props.conf:9
+msgid "Structured"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/bersicht_auftrge.xml:100
+msgid "Summe Umsatz pro Kunde"
+msgstr ""
+
+#: C:/Program Files/Splunk/etc/apps/Saegewerk/local/app.conf:3
+msgid "Sägewerk"
+msgstr ""
+
+#: C:/Program Files/Splunk/etc/apps/Saegewerk/local/data/ui/nav/default.xml
+msgid "Sägewerk Dashboards"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/produktion_endanwender.xml:5
+msgid "Sägewerk Übungsdashboard"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/drilldown_bersicht.xml:5
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/drilldown_bersicht.xml:25
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/drilldown_bersicht.xml:50
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/drilldown_bersicht.xml:73
+msgid "Tabelle"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungs_dashboard.xml:78
+msgid "Tabelle Top 5"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/test_inventx.xml:2
+msgid "Test_Inventx"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/test_dashboard.xml:2
+msgid "Test_dashboard"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/testdashboard.xml:2
+msgid "Testdashboard"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/metriken_sgewerk.xml:6
+msgid "Time Range"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/metriken_sgewerk.xml:21
+msgid "Time Span"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungs_dashboard.xml:47
+msgid "Timechart"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungtest.xml:30
+msgid "Timechart Holz Count"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/produktion_endanwender.xml:48
+msgid "Timechart Übung"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/drilldown_bersicht.xml:75
+msgid "Token setzen. Übergibt tok_holz an Kuchendiagramm"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/produktion_endanwender.xml:125
+msgid "Top 5 Kunden"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/produktion_endanwender.xml:8
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungs_dashboard.xml:5
+msgid "Uhrzeit"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/bersicht_auftrge.xml:45
+msgid "Umsatz"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/test_inventx.xml:29
+msgid "Umsatz Zeitchart"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/testdashboard.xml:15
+msgid "Umsatz über die Zeit"
+msgstr ""
+
+#. label
+#. option
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungtest.xml:5
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungtest.xml:42
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/testdashboard.xml:24
+msgid "Zeit"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/bersicht_auftrge.xml:5
+msgid "Zeitangabe"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/test_dashboard.xml:6
+msgid "Zeitansicht"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/anzahl_holz.xml:5
+msgid "Zeitauswahl"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/test_inventx.xml:5
+msgid "Zeiteingabe"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/testdashboard.xml:5
+msgid "Zeitfilter"
+msgstr ""
+
+#. input/choice
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/metriken_sgewerk.xml:22
+msgid "auto"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungtest.xml:2
+msgid "schulungtest"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/bersicht_auftrge.xml:2
+msgid "Übersicht Aufträge"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/anzahl_holz.xml:2
+msgid "Übersicht Filter"
+msgstr ""
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/chart_auswahl.xml:2
+msgid "Übersicht Reportingmöglichkeiten"
+msgstr ""
+
+#: C:/Program Files/Splunk/etc/apps/Saegewerk/local/data/ui/nav/default.xml
+msgid "Übersichts Dashboards"
+msgstr ""
+
+#. title
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/schulungs_dashboard.xml:45
+msgid "Übung: Dashboard Übersichtsboard (mit Zeitfilter)"
+msgstr ""
