@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-02-15 14:55+0100\n"
-"PO-Revision-Date: 2022-02-15 15:20+0100\n"
+"PO-Revision-Date: 2022-02-18 17:03+0100\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -597,6 +597,12 @@ msgstr ""
 #: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/bersicht_auftrge.xml:2
 msgid "Übersicht Aufträge"
 msgstr "Overview Orders"
+
+#. label
+#: C:/Program
+#: Files/Splunk/etc/apps/Saegewerk/local/data/ui/views/bersicht_auftrge.xml:2
+msgid "Übersicht Aufträge (Übersetzungen)"
+msgstr "Overview Orders (Translations)"
 
 #. label
 #: C:/Program
