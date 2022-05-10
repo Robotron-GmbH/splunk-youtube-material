@@ -1,0 +1,9 @@
+/* Überschrift auf unsichtbar schalten*/
+#auftragstabelle th[data-sort-key="_time"] {
+	display: none !important;
+}
+
+/*Zellen mit Werten unsichtbar schalten*/
+#auftragstabelle td.invisible-cell {
+	display: none !important;
+}
