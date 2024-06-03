@@ -1,5 +1,5 @@
-<dashboard>
-  <label>Übersicht Reportingmöglichkeiten</label>
+<dashboard version="1.1">
+  <label>Reports Übersicht</label>
   <row>
     <panel>
       <event>

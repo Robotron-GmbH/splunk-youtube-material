@@ -1,7 +1,116 @@
 
-        <dashboard version="2" theme="light">
-            <label>Minimal Beispiel</label>
-            <description></description>
-            <definition><![CDATA[{"visualizations":{"viz_MVOfh32r":{"type":"viz.column","options":{"axisTitleX.text":"Holz","axisTitleY.text":"Anzahl","legend.placement":"none"},"dataSources":{"primary":"ds_3PLUpkgm"}}},"dataSources":{"ds_3PLUpkgm":{"type":"ds.search","options":{"query":"index=auftrag Holz=$token_holz$\n|  stats count by Holz"},"name":"Holz Übersicht"},"Filtersuche_Holz":{"type":"ds.search","options":{"query":"index=auftrag\n| dedup Holz \n| table Holz"},"name":"Filtersuche_Holz"}},"defaults":{"dataSources":{"ds.search":{"options":{"queryParameters":{"latest":"$global_time.latest$","earliest":"$global_time.earliest$"}}}}},"inputs":{"input_global_trp":{"type":"input.timerange","options":{"token":"global_time","defaultValue":"-24h@h,now"},"title":"Globale Zeitspanne"},"input_ys7TdrTU":{"options":{"items":[{"label":"Alle","value":"*"}],"defaultValue":"*","token":"token_holz"},"encoding":{"label":"primary[0]","value":"primary[0]"},"dataSources":{"primary":"Filtersuche_Holz"},"title":"Holzsorte","type":"input.dropdown"}},"layout":{"type":"absolute","options":{},"structure":[{"item":"viz_MVOfh32r","type":"block","position":{"x":0,"y":0,"w":570,"h":300}}],"globalInputs":["input_global_trp","input_ys7TdrTU"]},"description":"","title":"Minimal Beispiel"}]]></definition>
-            <assets><![CDATA[{}]]></assets>
-        </dashboard>
+<dashboard version="2" theme="light">
+    <label>Minimal Beispiel Dashboard Studio</label>
+    <description></description>
+    <definition><![CDATA[
+{
+	"dataSources": {
+		"ds_3PLUpkgm": {
+			"type": "ds.search",
+			"options": {
+				"query": "index=auftrag Holz=$token_holz$\n|  stats count by Holz"
+			},
+			"name": "Holz Übersicht"
+		},
+		"Filtersuche_Holz": {
+			"type": "ds.search",
+			"options": {
+				"query": "index=auftrag\n| dedup Holz \n| table Holz"
+			},
+			"name": "Filtersuche_Holz"
+		}
+	},
+	"inputs": {
+		"input_global_trp": {
+			"type": "input.timerange",
+			"options": {
+				"token": "global_time",
+				"defaultValue": "-24h@h,now"
+			},
+			"title": "Globale Zeitspanne"
+		},
+		"input_ys7TdrTU": {
+			"options": {
+				"items": [
+					{
+						"label": "Alle",
+						"value": "*"
+					}
+				],
+				"defaultValue": "*",
+				"token": "token_holz"
+			},
+			"encoding": {
+				"label": "primary[0]",
+				"value": "primary[0]"
+			},
+			"dataSources": {
+				"primary": "Filtersuche_Holz"
+			},
+			"title": "Holzsorte",
+			"type": "input.dropdown"
+		}
+	},
+	"layout": {
+		"type": "absolute",
+		"options": {},
+		"structure": [
+			{
+				"item": "viz_MVOfh32r",
+				"type": "block",
+				"position": {
+					"x": 0,
+					"y": 0,
+					"w": 570,
+					"h": 300
+				}
+			}
+		],
+		"globalInputs": [
+			"input_global_trp",
+			"input_ys7TdrTU"
+		]
+	},
+	"description": "",
+	"title": "Minimal Beispiel Dashboard Studio",
+	"defaults": {
+		"dataSources": {
+			"ds.search": {
+				"options": {
+					"queryParameters": {
+						"latest": "$global_time.latest$",
+						"earliest": "$global_time.earliest$"
+					}
+				}
+			}
+		}
+	},
+	"visualizations": {
+		"viz_MVOfh32r": {
+			"type": "splunk.column",
+			"dataSources": {
+				"primary": "ds_3PLUpkgm"
+			},
+			"options": {
+				"yAxisAbbreviation": "off",
+				"y2AxisAbbreviation": "off",
+				"showRoundedY2AxisLabels": false,
+				"legendTruncation": "ellipsisMiddle",
+				"showY2MajorGridLines": true,
+				"xAxisTitleText": "Holz",
+				"yAxisTitleText": "Anzahl",
+				"legendDisplay": "off"
+			},
+			"context": {}
+		}
+	}
+}
+    ]]></definition>
+    <meta type="hiddenElements"><![CDATA[
+{
+	"hideEdit": false,
+	"hideOpenInSearch": false,
+	"hideExport": false
+}
+    ]]></meta>
+</dashboard>

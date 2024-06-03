@@ -1,4 +1,7 @@
-require(["underscore","splunkjs/mvc/searchmanager","splunkjs/mvc","jquery","splunk.i18n","splunkjs/mvc/tableview","splunkjs/mvc/simplexml/ready!"], function(_,SearchManager,mvc,$,i18n,TableView) {
+require(["underscore","splunkjs/mvc/searchmanager",
+"splunkjs/mvc","jquery",
+"splunkjs/mvc/tableview","splunkjs/mvc/simplexml/ready!"], 
+function(_,SearchManager,mvc,$,TableView) {
 
 
 // Nur Zahlen erlauben mit bestimmten Grenzwerten----------------------------------------------------------------------------------------------------

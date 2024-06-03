@@ -1,7 +1,357 @@
 
-        <dashboard version="2" theme="dark">
-            <label>Maschinen Überwachung</label>
-            <description></description>
-            <definition><![CDATA[{"visualizations":{"viz_nmHHOlIO":{"type":"splunk.choropleth.svg","options":{"svg":"http://localhost:8000/de-DE/static/app/Saegewerk/saegewerk.svg","backgroundColor":"#363D45"},"dataSources":{"primary":"ds_bqpvjBe7"}},"viz_aSdyifjZ":{"type":"splunk.table","dataSources":{"primary":"ds_yalacyPx"},"title":"Aktueller Auftrag","options":{"backgroundColor":"transparent","tableFormat":{"rowBackgroundColors":"> table | seriesByIndex(0) | pick(tableAltRowBackgroundColorsByBackgroundColor)","headerBackgroundColor":"> backgroundColor | setColorChannel(tableHeaderBackgroundColorConfig)","rowColors":"> rowBackgroundColors | maxContrast(tableRowColorMaxContrast)","headerColor":"> headerBackgroundColor | maxContrast(tableRowColorMaxContrast)"},"showRowNumbers":true}},"viz_5oBvXdN0":{"type":"viz.pie","dataSources":{"primary":"ds_fXzkP0uQ"},"title":"Anteil Holzsorten","options":{"chart.showPercent":true,"chart.sliceCollapsingThreshold":1,"backgroundColor":"transparent"}},"viz_ZT61Dnyc":{"type":"viz.markergauge","dataSources":{"primary":"ds_ig9ZgkDY"},"title":"Temperatur Gamma","options":{"ranges":[{"from":60,"value":"#CB3B43","to":80},{"from":40,"value":"#F4DF7A","to":60},{"from":20,"value":"#4BEBA8","to":40}],"backgroundColor":"transparent"}},"viz_AbP6qqQd":{"type":"viz.markergauge","dataSources":{"primary":"ds_mSptfIg5_ds_ig9ZgkDY"},"title":"Temperatur Beta","options":{"ranges":[{"from":60,"value":"#CB3B43","to":80},{"from":40,"value":"#F4DF7A","to":60},{"from":20,"value":"#4BEBA8","to":40}],"backgroundColor":"transparent"}},"viz_v0UXmJHc":{"type":"viz.markergauge","dataSources":{"primary":"ds_QrNc5IRH_ds_mSptfIg5_ds_ig9ZgkDY"},"title":"Temperatur Alpha","options":{"ranges":[{"from":60,"value":"#CB3B43","to":80},{"from":40,"value":"#F4DF7A","to":60},{"from":20,"value":"#4BEBA8","to":40}],"backgroundColor":"transparent"}},"viz_V0f9MRPM":{"type":"viz.area","options":{"legend.placement":"bottom","chart.nullValueMode":"connect","axisTitleX.text":"Zeit","axisTitleY.text":"Anzahl","backgroundColor":"transparent"},"dataSources":{"primary":"ds_QTGYdPpW"}}},"dataSources":{"ds_bqpvjBe7":{"type":"ds.search","options":{"query":"| mstats avg(\"Bieberbau.alpha.Temperatur\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Bieberbau.alpha.Temperatur\") AS \"alpha\" span=10s\n| fields - _span*\n| append [\n| mstats avg(\"Spechtnest.beta.Temperatur\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Spechtnest.beta.Temperatur\") AS \"beta\" span=10s\n| fields - _span*\n]\n| selfjoin keepsingle=true _time\n| append [\n| mstats avg(\"Spechtnest.gamma.Temperatur\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Spechtnest.gamma.Temperatur\") AS \"gamma\" span=10s\n| fields - _span*\n]\n| selfjoin keepsingle=true _time\n| stats last(alpha) as alpha , last(beta) as beta, last(gamma) as gamma\n| transpose\n| rename column as machine, \"row 1\" as temp","refresh":"10s"},"name":"Temperaturen"},"ds_yalacyPx":{"type":"ds.search","options":{"query":"index=auftrag\n| stats last(Umsatz) as Umsatz,last(Kunde) as Kunde,last(Gewicht) as Gewicht by Maschine","refresh":"10s"},"name":"Aktueller Auftrag"},"ds_fXzkP0uQ":{"type":"ds.search","options":{"query":"index=auftrag\n| stats count by Holz","refresh":"10s"},"name":"Holzsorten"},"ds_ig9ZgkDY":{"type":"ds.search","options":{"query":"| mstats avg(\"Spechtnest.gamma.Temperatur\") as Temp prestats=false WHERE \"index\"=\"maschinen\" span=10s\n| stats last(Temp) as Temp","refresh":"10s"},"name":"Temp Gamma"},"ds_mSptfIg5_ds_ig9ZgkDY":{"type":"ds.search","options":{"query":"| mstats avg(\"Spechtnest.beta.Temperatur\") as Temp prestats=false WHERE \"index\"=\"maschinen\" span=10s\n| stats last(Temp) as Temp","refresh":"10s"},"name":"Copy of Temp Gamma"},"ds_QrNc5IRH_ds_mSptfIg5_ds_ig9ZgkDY":{"type":"ds.search","options":{"query":"| mstats avg(\"Bieberbau.alpha.Temperatur\") as Temp prestats=false WHERE \"index\"=\"maschinen\" span=10s\n| stats last(Temp) as Temp","refresh":"10s"},"name":"Copy of Copy of Temp Gamma"},"ds_QTGYdPpW":{"type":"ds.search","options":{"query":"index=auftrag Maschine IN ($tok_maschine$)\n| timechart count by Maschine","refresh":"10s"},"name":"Anzahl Aufträge"},"ds_Filtersuche_Maschine":{"type":"ds.search","options":{"query":"index=auftrag\n| table Maschine\n| dedup Maschine"},"name":"Filtersuche_Maschine"}},"defaults":{"dataSources":{"ds.search":{"options":{"queryParameters":{"latest":"$global_time.latest$","earliest":"$global_time.earliest$"}}}}},"inputs":{"input_global_trp":{"type":"input.timerange","options":{"token":"global_time","defaultValue":"-15m,now"},"title":"Globale Zeitspanne"},"input_9hpN151c":{"options":{"items":[{"label":"Alle","value":"*"}],"defaultValue":"*","token":"tok_maschine"},"encoding":{"label":"primary[0]","value":"primary[0]"},"dataSources":{"primary":"Filtersuche_Maschine"},"title":"Maschinenauswahl","type":"input.multiselect"}},"layout":{"type":"absolute","options":{"display":"auto-scale"},"structure":[{"item":"viz_nmHHOlIO","type":"block","position":{"x":0,"y":100,"w":1200,"h":750}},{"item":"viz_V0f9MRPM","type":"block","position":{"x":0,"y":0,"w":390,"h":250}},{"item":"viz_aSdyifjZ","type":"block","position":{"x":0,"y":710,"w":610,"h":170}},{"item":"viz_5oBvXdN0","type":"block","position":{"x":870,"y":20,"w":320,"h":300}},{"item":"viz_ZT61Dnyc","type":"block","position":{"x":290,"y":180,"w":200,"h":230}},{"item":"viz_AbP6qqQd","type":"block","position":{"x":480,"y":130,"w":200,"h":230}},{"item":"viz_v0UXmJHc","type":"block","position":{"x":660,"y":80,"w":200,"h":230}}],"globalInputs":["input_global_trp","input_9hpN151c"]},"description":"","title":"Maschinen Überwachung"}]]></definition>
-            <assets><![CDATA[{}]]></assets>
-        </dashboard>
+<dashboard version="2" theme="dark">
+    <label>Maschinen Überwachung mit SVG Dashboard Studio</label>
+    <description></description>
+    <definition><![CDATA[
+{
+	"dataSources": {
+		"ds_bqpvjBe7": {
+			"type": "ds.search",
+			"options": {
+				"query": "| mstats avg(\"Bieberbau.alpha.Temperatur\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Bieberbau.alpha.Temperatur\") AS \"alpha\" span=10s\n| fields - _span*\n| append [\n| mstats avg(\"Spechtnest.beta.Temperatur\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Spechtnest.beta.Temperatur\") AS \"beta\" span=10s\n| fields - _span*\n]\n| selfjoin keepsingle=true _time\n| append [\n| mstats avg(\"Spechtnest.gamma.Temperatur\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Spechtnest.gamma.Temperatur\") AS \"gamma\" span=10s\n| fields - _span*\n]\n| selfjoin keepsingle=true _time\n| stats last(alpha) as alpha , last(beta) as beta, last(gamma) as gamma\n| transpose\n| rename column as machine, \"row 1\" as temp",
+				"refresh": "10s"
+			},
+			"name": "Temperaturen"
+		},
+		"ds_yalacyPx": {
+			"type": "ds.search",
+			"options": {
+				"query": "index=auftrag\n| stats last(Umsatz) as Umsatz,last(Kunde) as Kunde,last(Gewicht) as Gewicht by Maschine",
+				"refresh": "10s"
+			},
+			"name": "Aktueller Auftrag"
+		},
+		"ds_fXzkP0uQ": {
+			"type": "ds.search",
+			"options": {
+				"query": "index=auftrag\n| stats count by Holz",
+				"refresh": "10s"
+			},
+			"name": "Holzsorten"
+		},
+		"ds_ig9ZgkDY": {
+			"type": "ds.search",
+			"options": {
+				"query": "| mstats avg(\"Spechtnest.gamma.Temperatur\") as Temp prestats=false WHERE \"index\"=\"maschinen\" span=10s\n| stats last(Temp) as Temp",
+				"refresh": "10s"
+			},
+			"name": "Temp Gamma"
+		},
+		"ds_mSptfIg5_ds_ig9ZgkDY": {
+			"type": "ds.search",
+			"options": {
+				"query": "| mstats avg(\"Spechtnest.beta.Temperatur\") as Temp prestats=false WHERE \"index\"=\"maschinen\" span=10s\n| stats last(Temp) as Temp",
+				"refresh": "10s"
+			},
+			"name": "Copy of Temp Gamma"
+		},
+		"ds_QrNc5IRH_ds_mSptfIg5_ds_ig9ZgkDY": {
+			"type": "ds.search",
+			"options": {
+				"query": "| mstats avg(\"Bieberbau.alpha.Temperatur\") as Temp prestats=false WHERE \"index\"=\"maschinen\" span=10s\n| stats last(Temp) as Temp",
+				"refresh": "10s"
+			},
+			"name": "Copy of Copy of Temp Gamma"
+		},
+		"ds_QTGYdPpW": {
+			"type": "ds.search",
+			"options": {
+				"query": "index=auftrag Maschine IN ($tok_maschine$)\n| timechart count by Maschine",
+				"refresh": "10s"
+			},
+			"name": "Anzahl Aufträge"
+		},
+		"ds_Filtersuche_Maschine": {
+			"type": "ds.search",
+			"options": {
+				"query": "index=auftrag\n| table Maschine\n| dedup Maschine"
+			},
+			"name": "Filtersuche_Maschine"
+		}
+	},
+	"inputs": {
+		"input_global_trp": {
+			"type": "input.timerange",
+			"options": {
+				"token": "global_time",
+				"defaultValue": "-15m,now"
+			},
+			"title": "Globale Zeitspanne"
+		},
+		"input_9hpN151c": {
+			"options": {
+				"items": [
+					{
+						"label": "Alle",
+						"value": "*"
+					}
+				],
+				"defaultValue": "*",
+				"token": "tok_maschine"
+			},
+			"encoding": {
+				"label": "primary[0]",
+				"value": "primary[0]"
+			},
+			"dataSources": {
+				"primary": "Filtersuche_Maschine"
+			},
+			"title": "Maschinenauswahl",
+			"type": "input.multiselect"
+		}
+	},
+	"layout": {
+		"type": "absolute",
+		"options": {
+			"display": "auto-scale",
+			"backgroundColor": "#000000"
+		},
+		"structure": [
+			{
+				"item": "viz_nmHHOlIO",
+				"type": "block",
+				"position": {
+					"x": 0,
+					"y": 100,
+					"w": 1200,
+					"h": 750
+				}
+			},
+			{
+				"item": "viz_V0f9MRPM",
+				"type": "block",
+				"position": {
+					"x": 0,
+					"y": 0,
+					"w": 390,
+					"h": 250
+				}
+			},
+			{
+				"item": "viz_aSdyifjZ",
+				"type": "block",
+				"position": {
+					"x": 0,
+					"y": 710,
+					"w": 610,
+					"h": 170
+				}
+			},
+			{
+				"item": "viz_5oBvXdN0",
+				"type": "block",
+				"position": {
+					"x": 870,
+					"y": 20,
+					"w": 320,
+					"h": 300
+				}
+			},
+			{
+				"item": "viz_ZT61Dnyc",
+				"type": "block",
+				"position": {
+					"x": 290,
+					"y": 180,
+					"w": 200,
+					"h": 230
+				}
+			},
+			{
+				"item": "viz_AbP6qqQd",
+				"type": "block",
+				"position": {
+					"x": 480,
+					"y": 130,
+					"w": 200,
+					"h": 230
+				}
+			},
+			{
+				"item": "viz_v0UXmJHc",
+				"type": "block",
+				"position": {
+					"x": 660,
+					"y": 80,
+					"w": 200,
+					"h": 230
+				}
+			}
+		],
+		"globalInputs": [
+			"input_global_trp",
+			"input_9hpN151c"
+		]
+	},
+	"description": "",
+	"title": "Maschinen Überwachung mit SVG Dashboard Studio",
+	"defaults": {
+		"dataSources": {
+			"ds.search": {
+				"options": {
+					"queryParameters": {
+						"latest": "$global_time.latest$",
+						"earliest": "$global_time.earliest$"
+					}
+				}
+			}
+		}
+	},
+	"visualizations": {
+		"viz_nmHHOlIO": {
+			"type": "splunk.choropleth.svg",
+			"options": {
+				"svg": "http://localhost:8000/de-DE/static/app/Saegewerk/saegewerk.svg",
+				"backgroundColor": "#000000"
+			},
+			"dataSources": {
+				"primary": "ds_bqpvjBe7"
+			}
+		},
+		"viz_aSdyifjZ": {
+			"type": "splunk.table",
+			"dataSources": {
+				"primary": "ds_yalacyPx"
+			},
+			"title": "Aktueller Auftrag",
+			"options": {
+				"backgroundColor": "transparent",
+				"tableFormat": {
+					"rowBackgroundColors": "> table | seriesByIndex(0) | pick(tableAltRowBackgroundColorsByBackgroundColor)",
+					"headerBackgroundColor": "> backgroundColor | setColorChannel(tableHeaderBackgroundColorConfig)",
+					"rowColors": "> rowBackgroundColors | maxContrast(tableRowColorMaxContrast)",
+					"headerColor": "> headerBackgroundColor | maxContrast(tableRowColorMaxContrast)"
+				},
+				"showRowNumbers": true
+			}
+		},
+		"viz_5oBvXdN0": {
+			"type": "splunk.pie",
+			"dataSources": {
+				"primary": "ds_fXzkP0uQ"
+			},
+			"title": "Anteil Holzsorten",
+			"options": {
+				"labelDisplay": "valuesAndPercentage",
+				"collapseThreshold": 1,
+				"backgroundColor": "transparent"
+			},
+			"context": {}
+		},
+		"viz_ZT61Dnyc": {
+			"options": {
+				"gaugeRanges": [
+					{
+						"from": 60,
+						"value": "#CB3B43",
+						"to": 80
+					},
+					{
+						"from": 40,
+						"value": "#F4DF7A",
+						"to": 60
+					},
+					{
+						"from": 20,
+						"value": "#4BEBA8",
+						"to": 40
+					}
+				],
+				"value": "> primary | seriesByIndex(0) | lastPoint()",
+				"backgroundColor": "transparent"
+			},
+			"type": "splunk.markergauge",
+			"dataSources": {
+				"primary": "ds_ig9ZgkDY"
+			},
+			"title": "Temperatur Gamma",
+			"context": {}
+		},
+		"viz_AbP6qqQd": {
+			"options": {
+				"gaugeRanges": [
+					{
+						"from": 60,
+						"value": "#CB3B43",
+						"to": 80
+					},
+					{
+						"from": 40,
+						"value": "#F4DF7A",
+						"to": 60
+					},
+					{
+						"from": 20,
+						"value": "#4BEBA8",
+						"to": 40
+					}
+				],
+				"value": "> primary | seriesByIndex(0) | lastPoint()",
+				"backgroundColor": "transparent"
+			},
+			"type": "splunk.markergauge",
+			"dataSources": {
+				"primary": "ds_mSptfIg5_ds_ig9ZgkDY"
+			},
+			"title": "Temperatur Beta",
+			"context": {}
+		},
+		"viz_v0UXmJHc": {
+			"options": {
+				"gaugeRanges": [
+					{
+						"from": 60,
+						"value": "#CB3B43",
+						"to": 80
+					},
+					{
+						"from": 40,
+						"value": "#F4DF7A",
+						"to": 60
+					},
+					{
+						"from": 20,
+						"value": "#4BEBA8",
+						"to": 40
+					}
+				],
+				"value": "> primary | seriesByIndex(0) | lastPoint()",
+				"backgroundColor": "transparent"
+			},
+			"type": "splunk.markergauge",
+			"dataSources": {
+				"primary": "ds_QrNc5IRH_ds_mSptfIg5_ds_ig9ZgkDY"
+			},
+			"title": "Temperatur Alpha",
+			"context": {}
+		},
+		"viz_V0f9MRPM": {
+			"type": "splunk.area",
+			"dataSources": {
+				"primary": "ds_QTGYdPpW"
+			},
+			"options": {
+				"yAxisAbbreviation": "off",
+				"y2AxisAbbreviation": "off",
+				"showRoundedY2AxisLabels": false,
+				"legendTruncation": "ellipsisMiddle",
+				"showY2MajorGridLines": true,
+				"legendDisplay": "bottom",
+				"nullValueDisplay": "connect",
+				"xAxisTitleText": "Zeit",
+				"yAxisTitleText": "Anzahl",
+				"backgroundColor": "transparent"
+			},
+			"context": {}
+		}
+	}
+}
+    ]]></definition>
+    <meta type="hiddenElements"><![CDATA[
+{
+	"hideEdit": false,
+	"hideOpenInSearch": false,
+	"hideExport": false
+}
+    ]]></meta>
+</dashboard>

@@ -1,5 +1,5 @@
-<form theme="dark">
-  <label>Übersicht Filter</label>
+<form version="1.1" theme="dark">
+  <label>Filter Übersicht</label>
   <fieldset submitButton="true" autoRun="false">
     <input type="time" token="tok_time">
       <label>Zeitauswahl</label>

@@ -1,7 +1,334 @@
 
-        <dashboard version="2" theme="dark">
-            <label>Maschinendaten_DB_Studio</label>
-            <description></description>
-            <definition><![CDATA[{"visualizations":{"viz_3WGlCS3i":{"type":"viz.line","dataSources":{"primary":"ds_Sw373hUz"},"title":"Außentemperatur","options":{"axisTitleY.text":"Grad","axisTitleX.text":"Zeit","legend.placement":"none"}},"viz_ZE780LJD":{"type":"viz.line","dataSources":{"primary":"ds_mS0WpBMH_ds_Sw373hUz"},"title":"Luftdruck","options":{"axisTitleY.text":"Luftdruck","axisTitleX.text":"Zeit","legend.placement":"none"}},"viz_Z8nDphZN":{"type":"viz.line","dataSources":{"primary":"ds_T4Fd7aHL"},"title":"Stromstärke","options":{"chart.showDataLabels":"minmax","axisTitleX.text":"Zeit","axisTitleY.text":"Ampere","legend.labelStyle.overflowMode":"ellipsisEnd","legend.placement":"bottom"}},"viz_2VC8KHze":{"type":"viz.column","options":{"legend.placement":"none","axisTitleX.text":"Druck","axisTitleY.text":"Anzahl"},"dataSources":{"primary":"ds_LtQKPzjW"},"title":"Wasserdruckverteilung"},"viz_JQEzmlI3":{"type":"viz.markergauge","dataSources":{"primary":"ds_hruR5rY6"},"context":{"majorColorEditorConfig":[{"to":20,"value":"#D41F1F"},{"from":20,"to":40,"value":"#D94E17"},{"from":40,"to":60,"value":"#CBA700"},{"from":60,"to":80,"value":"#669922"},{"from":80,"value":"#118832"}],"trendColorEditorConfig":[{"to":0,"value":"#9E2520"},{"from":0,"value":"#1C6B2D"}]},"options":{"backgroundColor":"#294e70","ranges":[{"from":60,"value":"#CB3B43","to":80},{"from":40,"value":"#F4DF7A","to":60},{"from":0,"to":40,"value":"#4BEBA8"}]},"title":"Temperatur Alpha"},"viz_7GSZoKWP":{"type":"viz.markergauge","dataSources":{"primary":"ds_ah5esZUk_ds_hruR5rY6"},"context":{"majorColorEditorConfig":[{"to":20,"value":"#D41F1F"},{"from":20,"to":40,"value":"#D94E17"},{"from":40,"to":60,"value":"#CBA700"},{"from":60,"to":80,"value":"#669922"},{"from":80,"value":"#118832"}],"trendColorEditorConfig":[{"to":0,"value":"#9E2520"},{"from":0,"value":"#1C6B2D"}]},"options":{"backgroundColor":"#294e70","ranges":[{"from":60,"value":"#CB3B43","to":80},{"from":40,"value":"#F4DF7A","to":60},{"from":0,"to":40,"value":"#4BEBA8"}]},"title":"Temperatur Beta"},"viz_4ocWdjg5":{"type":"viz.markergauge","dataSources":{"primary":"ds_ngfKglv7_ds_ah5esZUk_ds_hruR5rY6"},"context":{"majorColorEditorConfig":[{"to":20,"value":"#D41F1F"},{"from":20,"to":40,"value":"#D94E17"},{"from":40,"to":60,"value":"#CBA700"},{"from":60,"to":80,"value":"#669922"},{"from":80,"value":"#118832"}],"trendColorEditorConfig":[{"to":0,"value":"#9E2520"},{"from":0,"value":"#1C6B2D"}]},"options":{"backgroundColor":"#294e70","ranges":[{"from":60,"value":"#CB3B43","to":80},{"from":40,"value":"#F4DF7A","to":60},{"from":0,"to":40,"value":"#4BEBA8"}]},"title":"Temperatur Gamma"}},"dataSources":{"ds_Sw373hUz":{"type":"ds.search","options":{"query":"| mstats avg(\"Aussenbereich.Aussentemperatur\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Aussenbereich.Aussentemperatur\") AS Avg span=10s\n| fields - _span*"},"name":"Außenbereich"},"ds_mS0WpBMH_ds_Sw373hUz":{"type":"ds.search","options":{"query":"| mstats avg(\"Aussenbereich.Luftdruck\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Aussenbereich.Luftdruck\") AS Avg span=10s\n| fields - _span*"},"name":"Luftdruck"},"ds_T4Fd7aHL":{"type":"ds.search","options":{"query":"| mstats avg(\"Bieberbau.alpha.Strom\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Bieberbau.alpha.Strom\") AS \"Bieberbau.alpha.Strom\" span=10s\n| fields - _span*\n| append [\n| mstats avg(\"Spechtnest.beta.Strom\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Spechtnest.beta.Strom\") AS \"Spechtnest.beta.Strom\" span=10s\n| fields - _span*\n]\n| selfjoin keepsingle=true _time\n| append [\n| mstats avg(\"Spechtnest.gamma.Strom\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Spechtnest.gamma.Strom\") AS \"Spechtnest.gamma.Strom\" span=10s\n| fields - _span*\n]\n| selfjoin keepsingle=true _time"},"name":"Search_1"},"ds_LtQKPzjW":{"type":"ds.search","options":{"query":"| mstats avg(\"Aussenbereich.Wasserdruck\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Aussenbereich.Wasserdruck\") AS Avg span=10s\n| fields - _span*\n| bin span=0.2 Avg\n| stats count by Avg\n| chart avg(count) by Avg"},"name":"Histogram Wasserdruck"},"ds_hruR5rY6":{"type":"ds.search","options":{"query":"| mstats avg(\"Bieberbau.alpha.Temperatur\") prestats=true WHERE \"index\"=\"maschinen\" span=5s\n| timechart avg(\"Bieberbau.alpha.Temperatur\") AS Avg span=5s\n| stats last(Avg)"},"name":"Search_2"},"ds_ah5esZUk_ds_hruR5rY6":{"type":"ds.search","options":{"query":"| mstats avg(\"Spechtnest.beta.Temperatur\") prestats=true WHERE \"index\"=\"maschinen\" span=5s\n| timechart avg(\"Spechtnest.beta.Temperatur\") AS Avg span=5s\n| stats last(Avg)"},"name":"Copy of Search_2"},"ds_ngfKglv7_ds_ah5esZUk_ds_hruR5rY6":{"type":"ds.search","options":{"query":"| mstats avg(\"Spechtnest.gamma.Temperatur\") prestats=true WHERE \"index\"=\"maschinen\" span=5s\n| timechart avg(\"Spechtnest.gamma.Temperatur\") AS Avg span=5s\n| stats last(Avg)"},"name":"Copy of Copy of Search_2"}},"defaults":{"dataSources":{"ds.search":{"options":{"queryParameters":{"latest":"$global_time.latest$","earliest":"$global_time.earliest$"}}}}},"inputs":{"input_global_trp":{"type":"input.timerange","options":{"token":"global_time","defaultValue":"-24h@h,now"},"title":"Globale Zeitspanne"}},"layout":{"type":"absolute","options":{"display":"auto-scale"},"structure":[{"item":"viz_3WGlCS3i","type":"block","position":{"x":0,"y":0,"w":520,"h":260}},{"item":"viz_ZE780LJD","type":"block","position":{"x":520,"y":0,"w":480,"h":260}},{"item":"viz_Z8nDphZN","type":"block","position":{"x":0,"y":260,"w":1000,"h":310}},{"item":"viz_2VC8KHze","type":"block","position":{"x":0,"y":570,"w":1000,"h":300}},{"item":"viz_JQEzmlI3","type":"block","position":{"x":1000,"y":0,"w":200,"h":280}},{"item":"viz_7GSZoKWP","type":"block","position":{"x":1000,"y":280,"w":200,"h":280}},{"item":"viz_4ocWdjg5","type":"block","position":{"x":1000,"y":560,"w":200,"h":280}}],"globalInputs":["input_global_trp"]},"description":"","title":"Maschinendaten_DB_Studio"}]]></definition>
-            <assets><![CDATA[{}]]></assets>
-        </dashboard>
+<dashboard version="2" theme="dark">
+    <label>Maschinendaten Beispiel Dashboard Studio</label>
+    <description></description>
+    <definition><![CDATA[
+{
+	"dataSources": {
+		"ds_Sw373hUz": {
+			"type": "ds.search",
+			"options": {
+				"query": "| mstats avg(\"Aussenbereich.Aussentemperatur\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Aussenbereich.Aussentemperatur\") AS Avg span=10s\n| fields - _span*"
+			},
+			"name": "Außenbereich"
+		},
+		"ds_mS0WpBMH_ds_Sw373hUz": {
+			"type": "ds.search",
+			"options": {
+				"query": "| mstats avg(\"Aussenbereich.Luftdruck\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Aussenbereich.Luftdruck\") AS Avg span=10s\n| fields - _span*"
+			},
+			"name": "Luftdruck"
+		},
+		"ds_T4Fd7aHL": {
+			"type": "ds.search",
+			"options": {
+				"query": "| mstats avg(\"Bieberbau.alpha.Strom\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Bieberbau.alpha.Strom\") AS \"Bieberbau.alpha.Strom\" span=10s\n| fields - _span*\n| append [\n| mstats avg(\"Spechtnest.beta.Strom\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Spechtnest.beta.Strom\") AS \"Spechtnest.beta.Strom\" span=10s\n| fields - _span*\n]\n| selfjoin keepsingle=true _time\n| append [\n| mstats avg(\"Spechtnest.gamma.Strom\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Spechtnest.gamma.Strom\") AS \"Spechtnest.gamma.Strom\" span=10s\n| fields - _span*\n]\n| selfjoin keepsingle=true _time"
+			},
+			"name": "Search_1"
+		},
+		"ds_LtQKPzjW": {
+			"type": "ds.search",
+			"options": {
+				"query": "| mstats avg(\"Aussenbereich.Wasserdruck\") prestats=true WHERE \"index\"=\"maschinen\" span=10s\n| timechart avg(\"Aussenbereich.Wasserdruck\") AS Avg span=10s\n| fields - _span*\n| bin span=0.2 Avg\n| stats count by Avg\n| chart avg(count) by Avg"
+			},
+			"name": "Histogram Wasserdruck"
+		},
+		"ds_hruR5rY6": {
+			"type": "ds.search",
+			"options": {
+				"query": "| mstats avg(\"Bieberbau.alpha.Temperatur\") prestats=true WHERE \"index\"=\"maschinen\" span=5s\n| timechart avg(\"Bieberbau.alpha.Temperatur\") AS Avg span=5s\n| stats last(Avg)"
+			},
+			"name": "Search_2"
+		},
+		"ds_ah5esZUk_ds_hruR5rY6": {
+			"type": "ds.search",
+			"options": {
+				"query": "| mstats avg(\"Spechtnest.beta.Temperatur\") prestats=true WHERE \"index\"=\"maschinen\" span=5s\n| timechart avg(\"Spechtnest.beta.Temperatur\") AS Avg span=5s\n| stats last(Avg)"
+			},
+			"name": "Copy of Search_2"
+		},
+		"ds_ngfKglv7_ds_ah5esZUk_ds_hruR5rY6": {
+			"type": "ds.search",
+			"options": {
+				"query": "| mstats avg(\"Spechtnest.gamma.Temperatur\") prestats=true WHERE \"index\"=\"maschinen\" span=5s\n| timechart avg(\"Spechtnest.gamma.Temperatur\") AS Avg span=5s\n| stats last(Avg)"
+			},
+			"name": "Copy of Copy of Search_2"
+		}
+	},
+	"inputs": {
+		"input_global_trp": {
+			"type": "input.timerange",
+			"options": {
+				"token": "global_time",
+				"defaultValue": "-24h@h,now"
+			},
+			"title": "Globale Zeitspanne"
+		}
+	},
+	"layout": {
+		"type": "absolute",
+		"options": {
+			"display": "auto-scale"
+		},
+		"structure": [
+			{
+				"item": "viz_3WGlCS3i",
+				"type": "block",
+				"position": {
+					"x": 0,
+					"y": 0,
+					"w": 520,
+					"h": 260
+				}
+			},
+			{
+				"item": "viz_ZE780LJD",
+				"type": "block",
+				"position": {
+					"x": 520,
+					"y": 0,
+					"w": 480,
+					"h": 260
+				}
+			},
+			{
+				"item": "viz_Z8nDphZN",
+				"type": "block",
+				"position": {
+					"x": 0,
+					"y": 260,
+					"w": 1000,
+					"h": 310
+				}
+			},
+			{
+				"item": "viz_2VC8KHze",
+				"type": "block",
+				"position": {
+					"x": 0,
+					"y": 570,
+					"w": 1000,
+					"h": 300
+				}
+			},
+			{
+				"item": "viz_JQEzmlI3",
+				"type": "block",
+				"position": {
+					"x": 1000,
+					"y": 0,
+					"w": 200,
+					"h": 280
+				}
+			},
+			{
+				"item": "viz_7GSZoKWP",
+				"type": "block",
+				"position": {
+					"x": 1000,
+					"y": 280,
+					"w": 200,
+					"h": 280
+				}
+			},
+			{
+				"item": "viz_4ocWdjg5",
+				"type": "block",
+				"position": {
+					"x": 1000,
+					"y": 560,
+					"w": 200,
+					"h": 280
+				}
+			}
+		],
+		"globalInputs": [
+			"input_global_trp"
+		]
+	},
+	"description": "",
+	"title": "Maschinendaten Beispiel Dashboard Studio",
+	"defaults": {
+		"dataSources": {
+			"ds.search": {
+				"options": {
+					"queryParameters": {
+						"latest": "$global_time.latest$",
+						"earliest": "$global_time.earliest$"
+					}
+				}
+			}
+		}
+	},
+	"visualizations": {
+		"viz_3WGlCS3i": {
+			"type": "splunk.line",
+			"dataSources": {
+				"primary": "ds_Sw373hUz"
+			},
+			"title": "Außentemperatur",
+			"options": {
+				"yAxisAbbreviation": "off",
+				"y2AxisAbbreviation": "off",
+				"showRoundedY2AxisLabels": false,
+				"legendTruncation": "ellipsisMiddle",
+				"showY2MajorGridLines": true,
+				"yAxisTitleText": "Grad",
+				"xAxisTitleText": "Zeit",
+				"legendDisplay": "off"
+			},
+			"context": {}
+		},
+		"viz_ZE780LJD": {
+			"type": "splunk.line",
+			"dataSources": {
+				"primary": "ds_mS0WpBMH_ds_Sw373hUz"
+			},
+			"title": "Luftdruck",
+			"options": {
+				"yAxisAbbreviation": "off",
+				"y2AxisAbbreviation": "off",
+				"showRoundedY2AxisLabels": false,
+				"legendTruncation": "ellipsisMiddle",
+				"showY2MajorGridLines": true,
+				"yAxisTitleText": "Luftdruck",
+				"xAxisTitleText": "Zeit",
+				"legendDisplay": "off"
+			},
+			"context": {}
+		},
+		"viz_Z8nDphZN": {
+			"type": "splunk.line",
+			"dataSources": {
+				"primary": "ds_T4Fd7aHL"
+			},
+			"title": "Stromstärke",
+			"options": {
+				"yAxisAbbreviation": "off",
+				"y2AxisAbbreviation": "off",
+				"showRoundedY2AxisLabels": false,
+				"legendTruncation": "ellipsisEnd",
+				"showY2MajorGridLines": true,
+				"dataValuesDisplay": "minmax",
+				"xAxisTitleText": "Zeit",
+				"yAxisTitleText": "Ampere",
+				"legendDisplay": "bottom"
+			},
+			"context": {}
+		},
+		"viz_2VC8KHze": {
+			"type": "splunk.column",
+			"dataSources": {
+				"primary": "ds_LtQKPzjW"
+			},
+			"title": "Wasserdruckverteilung",
+			"options": {
+				"yAxisAbbreviation": "off",
+				"y2AxisAbbreviation": "off",
+				"showRoundedY2AxisLabels": false,
+				"legendTruncation": "ellipsisMiddle",
+				"showY2MajorGridLines": true,
+				"legendDisplay": "off",
+				"xAxisTitleText": "Druck",
+				"yAxisTitleText": "Anzahl"
+			},
+			"context": {}
+		},
+		"viz_JQEzmlI3": {
+			"options": {
+				"gaugeRanges": [
+					{
+						"from": 60,
+						"value": "#CB3B43",
+						"to": 80
+					},
+					{
+						"from": 40,
+						"value": "#F4DF7A",
+						"to": 60
+					},
+					{
+						"from": 0,
+						"to": 40,
+						"value": "#4BEBA8"
+					}
+				],
+				"value": "> primary | seriesByIndex(0) | lastPoint()",
+				"backgroundColor": "#294e70"
+			},
+			"type": "splunk.markergauge",
+			"dataSources": {
+				"primary": "ds_hruR5rY6"
+			},
+			"context": {},
+			"title": "Temperatur Alpha"
+		},
+		"viz_7GSZoKWP": {
+			"options": {
+				"gaugeRanges": [
+					{
+						"from": 60,
+						"value": "#CB3B43",
+						"to": 80
+					},
+					{
+						"from": 40,
+						"value": "#F4DF7A",
+						"to": 60
+					},
+					{
+						"from": 0,
+						"to": 40,
+						"value": "#4BEBA8"
+					}
+				],
+				"value": "> primary | seriesByIndex(0) | lastPoint()",
+				"backgroundColor": "#294e70"
+			},
+			"type": "splunk.markergauge",
+			"dataSources": {
+				"primary": "ds_ah5esZUk_ds_hruR5rY6"
+			},
+			"context": {},
+			"title": "Temperatur Beta"
+		},
+		"viz_4ocWdjg5": {
+			"options": {
+				"gaugeRanges": [
+					{
+						"from": 60,
+						"value": "#CB3B43",
+						"to": 80
+					},
+					{
+						"from": 40,
+						"value": "#F4DF7A",
+						"to": 60
+					},
+					{
+						"from": 0,
+						"to": 40,
+						"value": "#4BEBA8"
+					}
+				],
+				"value": "> primary | seriesByIndex(0) | lastPoint()",
+				"backgroundColor": "#294e70"
+			},
+			"type": "splunk.markergauge",
+			"dataSources": {
+				"primary": "ds_ngfKglv7_ds_ah5esZUk_ds_hruR5rY6"
+			},
+			"context": {},
+			"title": "Temperatur Gamma"
+		}
+	}
+}
+    ]]></definition>
+    <meta type="hiddenElements"><![CDATA[
+{
+	"hideEdit": false,
+	"hideOpenInSearch": false,
+	"hideExport": false
+}
+    ]]></meta>
+</dashboard>
