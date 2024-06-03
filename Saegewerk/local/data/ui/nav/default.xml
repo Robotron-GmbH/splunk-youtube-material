@@ -30,6 +30,8 @@
             </collection>
             <collection label="Frontendkurs">
                 <view name="bersicht_auftrge_frontendkurs" />
+                <view name="uebersicht_auftrge_javascript_verbesserungen"/>
+                <view name="batterien_svg_beispiel"/>
             </collection>
 
     </collection>
