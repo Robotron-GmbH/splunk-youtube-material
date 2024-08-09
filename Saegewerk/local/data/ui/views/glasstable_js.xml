@@ -1,0 +1,68 @@
+<dashboard version="1.1" script="glasstable.js" stylesheet="glasstable.css">
+  <label>Frontend Übung Glasstable mit Javascript</label>
+  <fieldset submitButton="false">
+    <input type="time" token="field1">
+      <label></label>
+      <default>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+    <html>  </html>
+  </fieldset>
+  <row>
+    <panel id="image_overlay_panel">
+      <html>
+              <div class="ingestion_pipeline">
+                  <div id="image"> </div>
+                  <div class="klassekreise" id="secruity_1"/>
+                  <div class="klassekreise" id="secruity_2"/>
+                  <div class="klassekreise" id="bahn"/>
+                  <div class="klassekreise" id="auto"/>
+                  <div class="klassebalken" id="gesamt"/>
+                  <!--div class="klassekreise" id="burgerking"></div>
+                  <div class="klassekreise" id="presse"></div>
+                  <div class="klassekreise" id="zeitungen"></div>
+                  <div class="klassekreise" id="WC_1"></div>
+                  <div class="klassekreise" id="WC_2"></div>
+                  <div class="klassekreise" id="newyork"></div>
+                  <div class="klassekreise" id="london"></div>
+                  <div class="klassekreise" id="paris"></div>
+                  <div class="klassekreise" id="hamburg"></div>
+                  <div class="klassekreise" id="bonn"></div>
+                  <div class="klassekreise" id="frankfurt"></div-->	
+              </div>
+          </html>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart depends="$token_chart_secruity$">
+        <title>Sonstiges</title>
+        <search>
+          <query>index="auftrag" | stats count  </query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="charting.chart">line</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart depends="$token_chart_ankunft$">
+        <title>Ankunft</title>
+        <search>
+          <query>index="auftrag" | stats count  </query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="charting.chart">line</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+</dashboard>
