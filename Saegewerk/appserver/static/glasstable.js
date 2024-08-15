@@ -1,5 +1,9 @@
 require(["splunkjs/mvc/searchmanager","splunkjs/mvc","jquery","splunkjs/mvc/simplexml/ready!"], function(SearchManager,mvc,$) {
 
+
+	console.log("Jetzt gehts los"); 
+
+
 // Color the circles and return the absolute value
 function einfarben(ID,wert){
 	wert=parseInt(wert)
@@ -20,7 +24,7 @@ function einfarben(ID,wert){
 
 // on click on chart, set token
 $("#saege1").on("click", function() {
-  	console.log("Auf Zahl Security_1 geklickt: "+$( this ).text() ); 
+  	console.log("Auf Zahl saegewerk geklickt: "+$( this ).text() ); 
 	var submittedTokens = mvc.Components.getInstance('submitted'); 
 	submittedTokens.set('token_chart_maschine', "1"); 
 	submittedTokens.unset('token_chart_lager'); 
@@ -29,7 +33,7 @@ $("#saege1").on("click", function() {
 
 // on click on chart, set token
 $("#saege2").on("click", function() {
-	console.log("Auf Zahl Security_1 geklickt: "+$( this ).text() ); 
+	console.log("Auf Zahl saegewerk geklickt: "+$( this ).text() ); 
   var submittedTokens = mvc.Components.getInstance('submitted'); 
   submittedTokens.set('token_chart_maschine', "1"); 
   submittedTokens.unset('token_chart_lager'); 
@@ -38,7 +42,7 @@ $("#saege2").on("click", function() {
 
 // on click on chart, set token
 $("#saege3").on("click", function() {
-	console.log("Auf Zahl Security_1 geklickt: "+$( this ).text() ); 
+	console.log("Auf Zahl saegewerk geklickt: "+$( this ).text() ); 
   var submittedTokens = mvc.Components.getInstance('submitted'); 
   submittedTokens.set('token_chart_maschine', "1"); 
   submittedTokens.unset('token_chart_lager'); 
@@ -46,7 +50,7 @@ $("#saege3").on("click", function() {
 
 
 $("#lagerzahl").on("click", function() {
-	console.log("Auf Zahl Security_1 geklickt: "+$( this ).text() ); 
+	console.log("Auf Zahl saegewerk geklickt: "+$( this ).text() ); 
   var submittedTokens = mvc.Components.getInstance('submitted'); 
   submittedTokens.set('token_chart_lager', "1"); 
   submittedTokens.unset('token_chart_maschine'); 
@@ -79,9 +83,9 @@ standort_results.on("data", function() {
 	console.log("Data (rows) 0: ", standort_results.data());
 
 	// Holz für Sägen
-	aktueller_stand_saege1=standort_results.data().rows[0][3];
-	aktueller_stand_saege2=standort_results.data().rows[1][3];
-	aktueller_stand_saege3=standort_results.data().rows[6][3];
+	aktueller_stand_saege1=standort_results.data().rows[0][3]; // ALpha
+	aktueller_stand_saege2=standort_results.data().rows[1][3]; // Beta
+	aktueller_stand_saege3=standort_results.data().rows[6][3]; // Gamma
 	$("#saege1").html(aktueller_stand_saege1);
 	$("#saege2").html(aktueller_stand_saege2);
 	$("#saege3").html(aktueller_stand_saege3);

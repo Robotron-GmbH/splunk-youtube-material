@@ -15,22 +15,15 @@
       <html>
               <div class="ingestion_pipeline">
                   <div id="image"> </div>
-                  <div class="klassekreise" id="secruity_1"/>
-                  <div class="klassekreise" id="secruity_2"/>
-                  <div class="klassekreise" id="bahn"/>
-                  <div class="klassekreise" id="auto"/>
-                  <div class="klassebalken" id="gesamt"/>
-                  <!--div class="klassekreise" id="burgerking"></div>
-                  <div class="klassekreise" id="presse"></div>
-                  <div class="klassekreise" id="zeitungen"></div>
-                  <div class="klassekreise" id="WC_1"></div>
-                  <div class="klassekreise" id="WC_2"></div>
-                  <div class="klassekreise" id="newyork"></div>
-                  <div class="klassekreise" id="london"></div>
-                  <div class="klassekreise" id="paris"></div>
-                  <div class="klassekreise" id="hamburg"></div>
-                  <div class="klassekreise" id="bonn"></div>
-                  <div class="klassekreise" id="frankfurt"></div-->	
+                  <div class="klassekreise" id="saege1"/>
+                  <div class="klassekreise" id="saege2"/>
+                  <div class="klassekreise" id="saege3"/>
+                  <div class="lager" id="lagerzahl"/>
+                  <div class="gewicht_klasse" id="gewicht1"/>
+                  <div class="gewicht_klasse" id="gewicht2"/>
+                  <div class="gewicht_klasse" id="gewicht3"/>
+                  <div class="gewicht_klasse" id="gewicht4"/>
+                  <div class="gewicht_klasse" id="gewicht5"/>
               </div>
           </html>
     </panel>
