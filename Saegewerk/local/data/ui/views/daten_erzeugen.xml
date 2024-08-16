@@ -3,7 +3,7 @@
   <fieldset submitButton="true">
     <input type="text" token="tok_seconds">
       <label>Laufzeit in Sekunden</label>
-      <default>60</default>
+      <default>7200</default>
     </input>
   </fieldset>
   <row>
