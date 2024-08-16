@@ -30,10 +30,13 @@
   </row>
   <row>
     <panel>
-      <chart depends="$token_chart_secruity$">
+      <chart depends="$token_chart_maschine$">
         <title>Sonstiges</title>
         <search>
-          <query>index="auftrag" | stats count  </query>
+          <query>index=auftrag Maschine=$token_chart_maschine$
+| table _time, Holz, Kunde, Produkt
+| sort - _time
+| head 10 </query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -45,10 +48,11 @@
   </row>
   <row>
     <panel>
-      <chart depends="$token_chart_ankunft$">
+      <chart depends="$token_chart_lager$">
         <title>Ankunft</title>
         <search>
-          <query>index="auftrag" | stats count  </query>
+          <query>index=auftrag 
+|  stats count by Holz </query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
