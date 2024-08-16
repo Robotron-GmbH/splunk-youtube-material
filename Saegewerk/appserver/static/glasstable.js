@@ -16,13 +16,20 @@ function einfarben(ID,wert){
 	}	
 }
 
-
+function set_token(token_name,token_value){
+	// Setze Token in Default(wichtig für Title in DB) UND Submitted Mode (wichtig für SPL-Suche)
+	var submittedTokens = mvc.Components.getInstance('default'); 
+	submittedTokens.set(token_name,token_value); 
+	var submittedTokens = mvc.Components.getInstance('submitted'); 
+	submittedTokens.set(token_name,token_value); 
+}
 
 // on click on chart, set token
 $("#saege1").on("click", function() {
   	console.log("Auf Säge Alpha geklickt: "+$( this ).text() ); 
+	set_token("token_chart_maschine","Alpha")
+
 	var submittedTokens = mvc.Components.getInstance('submitted'); 
-	submittedTokens.set('token_chart_maschine', "Alpha"); 
 	submittedTokens.unset('token_chart_lager'); 
 });
 
@@ -30,25 +37,29 @@ $("#saege1").on("click", function() {
 // on click on chart, set token
 $("#saege2").on("click", function() {
 	console.log("Auf Säge Beta geklickt: "+$( this ).text() ); 
-  var submittedTokens = mvc.Components.getInstance('submitted'); 
-  submittedTokens.set('token_chart_maschine', "Beta"); 
-  submittedTokens.unset('token_chart_lager'); 
+	set_token("token_chart_maschine","Beta")
+
+	var submittedTokens = mvc.Components.getInstance('submitted'); 
+	submittedTokens.unset('token_chart_lager'); 
 });
 
 
 // on click on chart, set token
 $("#saege3").on("click", function() {
 	console.log("Auf Säge Gamma geklickt: "+$( this ).text() ); 
-  var submittedTokens = mvc.Components.getInstance('submitted'); 
-  submittedTokens.set('token_chart_maschine', "Gamma"); 
-  submittedTokens.unset('token_chart_lager'); 
+	set_token("token_chart_maschine","Gamma")
+
+	var submittedTokens = mvc.Components.getInstance('submitted'); 
+	submittedTokens.unset('token_chart_lager'); 
 });
+
 
 // on click on chart, set token
 $("#lagerzahl").on("click", function() {
 	console.log("Auf Lagerzahl geklickt: "+$( this ).text() ); 
+  set_token('token_chart_lager', "1"); 
+
   var submittedTokens = mvc.Components.getInstance('submitted'); 
-  submittedTokens.set('token_chart_lager', "1"); 
   submittedTokens.unset('token_chart_maschine'); 
 });
 
