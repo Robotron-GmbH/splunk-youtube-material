@@ -114,7 +114,6 @@ lager_results.on("data", function() {
 	console.log("Total",Total,lager_results.data())
 	$("#lagerzahl").width(100+13*parseInt(Total));
 	$("#lagerzahl").html(Total);
-
 });
 
 // Execute the Search all X seconds

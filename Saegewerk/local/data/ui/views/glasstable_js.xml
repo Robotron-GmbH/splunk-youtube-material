@@ -1,7 +1,7 @@
 <form version="1.1" script="glasstable.js" stylesheet="glasstable.css">
   <label>Frontend Übung Glasstable mit Javascript</label>
   <fieldset submitButton="false">
-    <input type="time" token="field1">
+    <input type="time" token="token_time">
       <label></label>
       <default>
         <earliest>-24h@h</earliest>
@@ -38,8 +38,8 @@
                 | table _time, Holz, Kunde, Produkt
                 | sort - _time
                 | head 10 </query>
-          <earliest>$field1.earliest$</earliest>
-          <latest>$field1.latest$</latest>
+          <earliest>$token_time.earliest$</earliest>
+          <latest>$token_time.latest$</latest>
         </search>
         <option name="drilldown">none</option>
       </table>
@@ -52,8 +52,8 @@
         <search>
           <query>index=auftrag 
 |  timechart count by Holz </query>
-          <earliest>$field1.earliest$</earliest>
-          <latest>$field1.latest$</latest>
+          <earliest>$token_time.earliest$</earliest>
+          <latest>$token_time.latest$</latest>
         </search>
         <option name="charting.chart">line</option>
         <option name="charting.drilldown">none</option>
