@@ -78,7 +78,7 @@ def erstelle_lookup(erste_spalte,dictionary,dateiname): # erstellt lookups aus d
     
 def statistik_funktion(wahrscheinlichkeiten,auswahl):
     zufalls_zahl=random.random()
-    wahr_arr=wahrscheinlichkeiten[:]  #.copy() #fuer Version 2.7
+    wahr_arr=wahrscheinlichkeiten[:]  
     wahr_arr.insert(0,0)
     wahr_arr_zwi=aufaddieren(wahr_arr)
     wahr_arr_zwi[-1]=1.0
@@ -112,12 +112,13 @@ def auftrag(kunden_arr,verhaltnis_auftrage):
 def prozess_ablauf(auftragsnummer,zeitstempel,maschine,Lager):
     
     file="Prozesskette.csv" #Zeit, Auftragsnummer, Prozesschritt, Maschine
-    bohrer=  random.choice(["Bohrer_1","Bohrer_2","Bohrer_3","Bohrer_4"])
+    bohrer=    random.choice(["Bohrer_1","Bohrer_2","Bohrer_3","Bohrer_4"])
     politur=   random.choice(["Politur_1","Politur_2","Politur_3"])
-    verpackung=random.choice(["Verpackung-1","Verpackung-2","Verpackung-3","Verpackung-4","Verpackung-5"])
+    verpackung=random.choice(["Verpackung_1","Verpackung_2","Verpackung_3","Verpackung_4","Verpackung_5"])
     Lager_Wahl=random.choice([0,1,2,3])
-    Lager_Namen=["Lagerhalle 1","Lagerhalle 2","Lagerhalle 3","Lagerhalle 4"]
+    Lager_Namen=["Lagerhalle_1","Lagerhalle_2","Lagerhalle_3","Lagerhalle_4"]
     
+    # Wenn Lager voll ist
     if Lager[Lager_Wahl]>10:
         Lager[Lager_Wahl]=1
 
