@@ -8,7 +8,6 @@
         <latest>now</latest>
       </default>
     </input>
-    <html>  </html>
   </fieldset>
   <row>
     <panel id="image_overlay_panel">
