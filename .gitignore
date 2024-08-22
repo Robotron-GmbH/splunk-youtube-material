@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 Daten_Generator/.DS_Store
 .DS_Store
+/Saegewerk/local/data/models/Datenmodell_Test.json
+/Saegewerk/bin/Prozesskette.csv
