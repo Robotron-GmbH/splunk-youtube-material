@@ -12,11 +12,11 @@
   <row>
     <panel id="image_overlay_panel">
       <html>
-              <div class="ingestion_pipeline">
+              <div class="leinwand_klasse">
                   <div id="image"> </div>
-                  <div class="klassekreise" id="saege1"/>
-                  <div class="klassekreise" id="saege2"/>
-                  <div class="klassekreise" id="saege3"/>
+                  <div class="saege_klasse" id="saege1"/>
+                  <div class="saege_klasse" id="saege2"/>
+                  <div class="saege_klasse" id="saege3"/>
                   <div class="lager" id="lagerzahl"/>
                   <div class="gewicht_klasse" id="gewicht1"/>
                   <div class="gewicht_klasse" id="gewicht2"/>
