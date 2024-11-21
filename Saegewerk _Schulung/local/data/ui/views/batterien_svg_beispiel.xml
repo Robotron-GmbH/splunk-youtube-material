@@ -1,0 +1,72 @@
+<form version="1.1">
+  <label>SVG Batterieanzeige</label>
+  <fieldset submitButton="false">
+    <input type="radio" token="bars">
+      <label>Anzahlbalken</label>
+      <choice value="0">0</choice>
+      <choice value="1">1</choice>
+      <choice value="2">2</choice>
+      <choice value="3">3</choice>
+      <choice value="4">4</choice>
+      <choice value="5">5</choice>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <viz type="svg.svg">
+        <search>
+          <query>| makeresults|eval bars=$bars$
+| eval farbe1=case(bars&lt;=1,"red",bars=2,"yellow",bars&gt;2,"green",true(),"white")
+| eval farbe2=case(bars=2,"yellow",bars&gt;2,"green",true(),"white")
+| eval farbe3=if(bars&gt;=3,"green","white")
+| eval farbe4=if(bars&gt;=4,"green","white")
+| eval farbe5=if(bars=5,"green","white")
+| eval animation=if(bars=0,"2","0")
+| eval svg_viz="&lt;svg width='400' height='180'&gt;
+       viewBox='0 0 100 50'
+  &lt;rect style='fill:none;stroke:black ;stroke-width:6;stroke-linejoin:round'
+         width='90'
+         height='43' rx='5' ry='5'
+         x='3'
+         y='3'/&gt;
+         &lt;rect
+         width='11'
+         height='28'
+         x='12'
+         y='10'&gt;
+         &lt;animate attributeName='fill' values='".farbe1.";white;".farbe1.";white;".farbe1."' dur='".animation."s' repeatCount='indefinite' /&gt;
+         &lt;/rect&gt;
+         &lt;rect style='fill:".farbe2.";'
+         width='11'
+         height='28'
+         x='27'
+         y='10'/&gt;
+         &lt;rect style='fill:".farbe3.";'
+         width='11'
+         height='28'
+         x='42'
+         y='10'/&gt;
+         &lt;rect style='fill:".farbe4.";'
+         width='11'
+         height='28'
+         x='57'
+         y='10'/&gt;
+         &lt;rect style='fill:".farbe5.";'
+         width='11'
+         height='28'
+         x='72'
+         y='10'/&gt;
+         &lt;/svg&gt;"</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="trellis.enabled">0</option>
+        <option name="trellis.scales.shared">1</option>
+        <option name="trellis.size">medium</option>
+      </viz>
+    </panel>
+  </row>
+</form>

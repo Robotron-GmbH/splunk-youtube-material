@@ -1,0 +1,63 @@
+<form version="1.1" script="glasstable.js" stylesheet="glasstable.css">
+  <label>Frontend Übung Glasstable mit Javascript</label>
+  <fieldset submitButton="false">
+    <input type="time" token="token_time">
+      <label></label>
+      <default>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+  </fieldset>
+  <row>
+    <panel id="image_overlay_panel">
+      <html>
+              <div class="leinwand_klasse">
+                  <div id="image"> </div>
+                  <div class="saege_klasse" id="saege1"/>
+                  <div class="saege_klasse" id="saege2"/>
+                  <div class="saege_klasse" id="saege3"/>
+                  <div class="lager" id="lagerzahl"/>
+                  <div class="gewicht_klasse" id="gewicht1"/>
+                  <div class="gewicht_klasse" id="gewicht2"/>
+                  <div class="gewicht_klasse" id="gewicht3"/>
+                  <div class="gewicht_klasse" id="gewicht4"/>
+                  <div class="gewicht_klasse" id="gewicht5"/>
+              </div>
+          </html>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Übersicht Säge</title>
+      <table depends="$token_chart_maschine$">
+        <title>Informationen zur Sägenhistorie $token_chart_maschine$</title>
+        <search>
+          <query>index=auftrag Maschine=$token_chart_maschine$
+                | table _time, Holz, Kunde, Produkt
+                | sort - _time
+                | head 10 </query>
+          <earliest>$token_time.earliest$</earliest>
+          <latest>$token_time.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart depends="$token_chart_lager$">
+        <title>Anzahl pro Holz</title>
+        <search>
+          <query>index=auftrag 
+|  timechart count by Holz </query>
+          <earliest>$token_time.earliest$</earliest>
+          <latest>$token_time.latest$</latest>
+        </search>
+        <option name="charting.chart">line</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+</form>

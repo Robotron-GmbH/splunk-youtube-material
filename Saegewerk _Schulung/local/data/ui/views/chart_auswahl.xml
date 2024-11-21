@@ -1,0 +1,227 @@
+<dashboard version="1.1">
+  <label>Reports Übersicht</label>
+  <row>
+    <panel>
+      <event>
+        <search>
+          <query>index=auftrag</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="count">5</option>
+        <option name="list.drilldown">none</option>
+      </event>
+    </panel>
+    <panel>
+      <table>
+        <title>Statistics Table</title>
+        <search>
+          <query>index=auftrag
+|stats count by Holz</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="drilldown">none</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>Liniendiagramm</title>
+        <search>
+          <query>index=auftrag
+|timechart avg(Umsatz)</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="charting.chart">line</option>
+        <option name="charting.drilldown">none</option>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>Area Chart</title>
+        <search>
+          <query>index=auftrag
+|timechart avg(Umsatz)</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="charting.chart">area</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>Column Chart</title>
+        <search>
+          <query>index=auftrag
+| stats count by Holz</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="charting.chart">column</option>
+        <option name="charting.drilldown">none</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>Bar Chart</title>
+        <search>
+          <query>index=auftrag
+| stats count by Holz</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="charting.chart">bar</option>
+        <option name="charting.drilldown">none</option>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>Kuchendiagramm</title>
+        <search>
+          <query>index=auftrag
+| stats count by Holz</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="charting.chart">pie</option>
+        <option name="charting.drilldown">none</option>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>Scatter Chart</title>
+        <search>
+          <query>index=auftrag Holz=* Kunde=*
+| stats sum(Umsatz) by Holz, Produkt,Gewicht</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="charting.chart">scatter</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>Blasendiagramm</title>
+        <search>
+          <query>index=auftrag
+| stats avg(Dauer), sum(Umsatz), avg(Gewicht) by Holz, Produkt</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="charting.chart">bubble</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <single>
+        <title>Single Value</title>
+        <search>
+          <query>index=auftrag
+| timechart last(Umsatz)</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </single>
+    </panel>
+    <panel>
+      <chart>
+        <title>Radical Gauge</title>
+        <search>
+          <query>index=auftrag
+| stats last(Umsatz)</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+          <refresh>30s</refresh>
+          <refreshType>delay</refreshType>
+        </search>
+        <option name="charting.chart">radialGauge</option>
+        <option name="charting.chart.rangeValues">[0,30,70,250]</option>
+        <option name="charting.chart.style">minimal</option>
+        <option name="charting.gaugeColors">["0x53a051","0xf8be34","0xdc4e41"]</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>Füllstandsanzeige</title>
+        <search>
+          <query>index=auftrag
+| stats last(Umsatz)</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+          <refresh>30s</refresh>
+          <refreshType>delay</refreshType>
+        </search>
+        <option name="charting.chart">fillerGauge</option>
+        <option name="charting.chart.rangeValues">[0,30,70,250]</option>
+        <option name="charting.gaugeColors">["0x53a051","0xf8be34","0xdc4e41"]</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>Marker Gauge</title>
+        <search>
+          <query>index=auftrag
+| stats last(Umsatz)</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+          <refresh>30s</refresh>
+          <refreshType>delay</refreshType>
+        </search>
+        <option name="charting.chart">markerGauge</option>
+        <option name="charting.chart.rangeValues">[0,30,70,200]</option>
+        <option name="charting.gaugeColors">["0x53a051","0xf8be34","0xdc4e41"]</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <map>
+        <title>Cloropleth Map</title>
+        <search>
+          <query>| inputlookup target.csv
+| iplocation Zulieferer
+| stats dc(Holzart) by Country
+| geom geo_countries featureIdField=Country</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="mapping.type">choropleth</option>
+        <option name="refresh.display">progressbar</option>
+      </map>
+    </panel>
+    <panel>
+      <map>
+        <title>Cluster Map</title>
+        <search>
+          <query>| inputlookup target.csv
+| iplocation Zulieferer
+| geostats latfield=lat longfield=lon count by Holzart</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="mapping.type">marker</option>
+      </map>
+    </panel>
+  </row>
+</dashboard>

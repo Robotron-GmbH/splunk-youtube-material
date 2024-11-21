@@ -1,0 +1,41 @@
+<nav search_view="search" color="#5CC05C">
+  <view name="search" default="true"/>
+  <view name="analytics_workspace" />
+  <view name="datasets" />
+  <view name="reports" />
+  <view name="alerts" />
+  <view name="dashboards" />
+
+    <!-- Use the collection tag to create a list of items -->
+    <collection label="Sägewerk Dashboards">
+        <!-- Add items to the list -->
+        <view name="daten_erzeugen"/>
+        <view name="bersicht_auftrge" />
+        <view name="produktion_endanwender" />
+          <collection label="Dashboards für Übungen">
+      <view name="schulungs_dashboard"/>
+        <view name="auftrge_postprocess" />
+        <view name="annotations" />
+          </collection>
+          <collection label="Übersichts Dashboards">
+        <view name="chart_auswahl" />
+        <view name="drilldown_bersicht"/>
+        <view name="anzahl_holz" />
+            </collection>
+        <!--Add a nested list with items --> 
+            <collection label="Dashboard Studio">
+                <view name="dashboard_studio_minimalbsp" />
+                <view name="maschinendaten_db_studio" />
+                <view name="maschinen_berwachung" />
+            </collection>
+            <collection label="Frontendkurs">
+                <view name="xml_erweiterungen" />
+                <view name="bersicht_auftrge_frontendkurs" />
+                <view name="uebersicht_auftrge_javascript_verbesserungen"/>
+                <view name="batterien_svg_beispiel"/>
+                <view name="glasstable_js"/>
+            </collection>
+
+    </collection>
+      <view name="splunk_schulungen"/>
+</nav>
