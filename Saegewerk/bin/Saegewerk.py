@@ -344,7 +344,8 @@ for i in range(kunden):
     
         if letzter_Kunde==kunde_aus[0]:
             #print("Sammelauftrag:", ID, "aktueller Kunde:",kunde_aus[0]," Letzter Kunde:",letzter_Kunde)
-            pass
+            pass # für jeden Arbeits-Auftrag neue ID
+            #ID=zufalls_ID()
         else:
             ID=zufalls_ID()
         letzter_Kunde=kunde_aus[0]

@@ -1,0 +1,219 @@
+{
+    "modelName": "Sgewerk_Datenmodell",
+    "displayName": "Sägewerk_Datenmodell",
+    "description": "",
+    "objectSummary": {
+        "Event-Based": 3,
+        "Transaction-Based": 0,
+        "Search-Based": 0
+    },
+    "objects": [
+        {
+            "objectName": "Auftrge",
+            "displayName": "Aufträge",
+            "parentName": "BaseEvent",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "AuftragsID",
+                    "owner": "Auftrge",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "AuftragsID",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Dauer",
+                    "owner": "Auftrge",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Dauer",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Gewicht",
+                    "owner": "Auftrge",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Gewicht",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Holz",
+                    "owner": "Auftrge",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Holz",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Kunde",
+                    "owner": "Auftrge",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Kunde",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Maschine",
+                    "owner": "Auftrge",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Maschine",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Produkt",
+                    "owner": "Auftrge",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Produkt",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Umsatz",
+                    "owner": "Auftrge",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Umsatz",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "time",
+                    "owner": "Auftrge",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [
+                {
+                    "search": "index=auftrag",
+                    "owner": "Auftrge"
+                }
+            ],
+            "lineage": "Auftrge"
+        },
+        {
+            "objectName": "TopKunde",
+            "displayName": "TopKunde",
+            "parentName": "Auftrge",
+            "comment": "",
+            "fields": [],
+            "calculations": [],
+            "constraints": [
+                {
+                    "search": "Kunde=IDEA",
+                    "owner": "Auftrge.TopKunde"
+                }
+            ],
+            "lineage": "Auftrge.TopKunde"
+        },
+        {
+            "objectName": "TopProdukte",
+            "displayName": "TopProdukte",
+            "parentName": "Auftrge",
+            "comment": "",
+            "fields": [],
+            "calculations": [],
+            "constraints": [
+                {
+                    "search": "Produkt=Stuhl OR Produkt=Tisch",
+                    "owner": "Auftrge.TopProdukte"
+                }
+            ],
+            "lineage": "Auftrge.TopProdukte"
+        }
+    ],
+    "objectNameList": [
+        "Auftrge",
+        "TopKunde",
+        "TopProdukte"
+    ]
+}

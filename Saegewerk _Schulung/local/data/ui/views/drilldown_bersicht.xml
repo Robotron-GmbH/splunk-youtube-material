@@ -1,0 +1,111 @@
+<dashboard version="1.1">
+  <label>Drilldown Übersicht</label>
+  <row>
+    <panel>
+      <title>Tabelle</title>
+      <table>
+        <title>Link zur Suche Automatisch</title>
+        <search>
+          <query>index=auftrag
+| stats count As Anzahl, avg(Umsatz) as Mittelwert_Umsatz by Holz</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">20</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="percentagesRow">false</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+    <panel>
+      <title>Tabelle</title>
+      <table>
+        <title>Link zu Dashboard Übersicht inklusive Tokenübergabe von Holz (tok_holz)</title>
+        <search>
+          <query>index=auftrag
+| stats count As Anzahl, avg(Umsatz) as Mittelwert_Umsatz by Holz</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">20</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="percentagesRow">false</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+        <drilldown>
+          <link target="_blank">/app/Daten_Generator/bersicht_auftrge?form.tok_holz=$row.Holz$</link>
+        </drilldown>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Tabelle</title>
+      <table>
+        <title>Link zu Wikipedia für die Holzart</title>
+        <search>
+          <query>index=auftrag
+| stats count As Anzahl, avg(Umsatz) as Mittelwert_Umsatz by Holz</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">20</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="percentagesRow">false</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+        <drilldown>
+          <link target="_blank">https://de.wikipedia.org/wiki/$row.Holz$</link>
+        </drilldown>
+      </table>
+    </panel>
+    <panel>
+      <title>Tabelle</title>
+      <table>
+        <title>Token setzen. Übergibt tok_holz an Kuchendiagramm</title>
+        <search>
+          <query>index=auftrag
+| stats count As Anzahl, avg(Umsatz) as Mittelwert_Umsatz by Holz</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">20</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="percentagesRow">false</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+        <drilldown>
+          <set token="tok_holz">$row.Holz$</set>
+        </drilldown>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>Aufteilung nach Produkt für Holz: $tok_holz$</title>
+        <search>
+          <query>index=auftrag Holz=$tok_holz$
+| stats avg(Umsatz) by Produkt</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="charting.chart">pie</option>
+        <option name="charting.drilldown">none</option>
+      </chart>
+    </panel>
+  </row>
+</dashboard>

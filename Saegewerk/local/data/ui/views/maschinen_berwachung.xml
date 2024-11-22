@@ -77,27 +77,6 @@
 				"defaultValue": "-15m,now"
 			},
 			"title": "Globale Zeitspanne"
-		},
-		"input_9hpN151c": {
-			"options": {
-				"items": [
-					{
-						"label": "Alle",
-						"value": "*"
-					}
-				],
-				"defaultValue": "*",
-				"token": "tok_maschine"
-			},
-			"encoding": {
-				"label": "primary[0]",
-				"value": "primary[0]"
-			},
-			"dataSources": {
-				"primary": "Filtersuche_Maschine"
-			},
-			"title": "Maschinenauswahl",
-			"type": "input.multiselect"
 		}
 	},
 	"layout": {
@@ -112,37 +91,37 @@
 				"type": "block",
 				"position": {
 					"x": 0,
-					"y": 100,
-					"w": 1200,
-					"h": 750
+					"y": 110,
+					"w": 840,
+					"h": 480
 				}
 			},
 			{
 				"item": "viz_V0f9MRPM",
 				"type": "block",
 				"position": {
-					"x": 0,
-					"y": 0,
-					"w": 390,
-					"h": 250
+					"x": 700,
+					"y": 370,
+					"w": 490,
+					"h": 220
 				}
 			},
 			{
 				"item": "viz_aSdyifjZ",
 				"type": "block",
 				"position": {
-					"x": 0,
-					"y": 710,
-					"w": 610,
-					"h": 170
+					"x": 10,
+					"y": 560,
+					"w": 1180,
+					"h": 180
 				}
 			},
 			{
 				"item": "viz_5oBvXdN0",
 				"type": "block",
 				"position": {
-					"x": 870,
-					"y": 20,
+					"x": 670,
+					"y": 0,
 					"w": 320,
 					"h": 300
 				}
@@ -151,18 +130,18 @@
 				"item": "viz_ZT61Dnyc",
 				"type": "block",
 				"position": {
-					"x": 290,
-					"y": 180,
+					"x": 180,
+					"y": 100,
 					"w": 200,
-					"h": 230
+					"h": 240
 				}
 			},
 			{
 				"item": "viz_AbP6qqQd",
 				"type": "block",
 				"position": {
-					"x": 480,
-					"y": 130,
+					"x": 310,
+					"y": 50,
 					"w": 200,
 					"h": 230
 				}
@@ -171,16 +150,15 @@
 				"item": "viz_v0UXmJHc",
 				"type": "block",
 				"position": {
-					"x": 660,
-					"y": 80,
+					"x": 440,
+					"y": 0,
 					"w": 200,
 					"h": 230
 				}
 			}
 		],
 		"globalInputs": [
-			"input_global_trp",
-			"input_9hpN151c"
+			"input_global_trp"
 		]
 	},
 	"description": "",
@@ -202,10 +180,43 @@
 			"type": "splunk.choropleth.svg",
 			"options": {
 				"svg": "http://localhost:8000/de-DE/static/app/Saegewerk/saegewerk.svg",
-				"backgroundColor": "#000000"
+				"backgroundColor": "#000000",
+				"areaColors": "> areaValues | rangeValue(areaColorsEditorConfig)"
 			},
 			"dataSources": {
 				"primary": "ds_bqpvjBe7"
+			},
+			"context": {
+				"areaColorsEditorConfig": [
+					{
+						"value": "#118832",
+						"to": 30
+					},
+					{
+						"value": "#669922",
+						"from": 30,
+						"to": 40
+					},
+					{
+						"value": "#9D9F0D",
+						"from": 40,
+						"to": 50
+					},
+					{
+						"value": "#D97A0D",
+						"from": 50,
+						"to": 60
+					},
+					{
+						"value": "#D94E17",
+						"from": 60,
+						"to": 70
+					},
+					{
+						"value": "#D41F1F",
+						"from": 70
+					}
+				]
 			}
 		},
 		"viz_aSdyifjZ": {
@@ -326,23 +337,16 @@
 			"context": {}
 		},
 		"viz_V0f9MRPM": {
-			"type": "splunk.area",
+			"type": "splunk.line",
 			"dataSources": {
 				"primary": "ds_QTGYdPpW"
 			},
 			"options": {
-				"yAxisAbbreviation": "off",
-				"y2AxisAbbreviation": "off",
-				"showRoundedY2AxisLabels": false,
-				"legendTruncation": "ellipsisMiddle",
-				"showY2MajorGridLines": true,
-				"legendDisplay": "bottom",
-				"nullValueDisplay": "connect",
-				"xAxisTitleText": "Zeit",
-				"yAxisTitleText": "Anzahl",
-				"backgroundColor": "transparent"
+				"nullValueDisplay": "connect"
 			},
-			"context": {}
+			"containerOptions": {},
+			"showProgressBar": false,
+			"showLastUpdated": false
 		}
 	}
 }

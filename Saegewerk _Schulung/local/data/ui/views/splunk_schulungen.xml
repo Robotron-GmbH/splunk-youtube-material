@@ -1,0 +1,39 @@
+<dashboard version="1.1">
+  <label>Splunk Schulungen: Infoseite zu Kursen</label>
+  <row>
+    <panel>
+      <html>
+					<div class="text-container">
+								<h2 class="text-left">Die Datenintegrations- und Analyseplattform verstehen und anwenden</h2>
+						<div class="text-content">
+									<div>
+              <p>IT-Systeme und Technologieinfrastrukturen, wie Websites, Anwendungen, Server, Netzwerke, Sensoren, Mobilgeräte sowie Anlagen erzeugen permanent einen massiven Datenstrom. Mit Splunk Enterprise haben Sie die Möglichkeit, einen vollständigen Überblick über alle relevanten Daten aus sämtlichen Systemen, Geräten und Interaktionen Ihres Unternehmens zu erhalten – in Echtzeit.</p>
+<p>Wir machen Sie fit für den Einsatz der Plattform für Operational Intelligence – mit verschiedenen Splunk-Schulungen und Kursniveaus, die auf Ihre Kenntnisse sowie Anwendungsgebiete zugeschnitten sind.</p>
+            </div>
+						</div>
+					</div>
+
+<div class="text-content">
+							<ul>
+									<div>
+              <p> <li>Der <strong>Grundlagenkurs </strong>vermittelt die wesentlichen Kenntnisse für das Arbeiten mit der Technologie, wie den Bedienelementen, Funktionen, den Grundlagen der abfrageorientierten Suche und ersten Ansätzen zur Analyse und dem Reporting.</li>
+              </p>
+<p>
+                <li>Systemadministratoren beschäftigen sich im <strong>Administrationskurs </strong>vor allem vertieft mit der Splunk-Architektur, insbesondere einer verteilten Clusterlösung. Dort lernen sie zentrale Aspekte zur Verwaltung von Speicherstrukturen, zur Lizensierung sowie zur Nutzer- und Zugriffsadministration kennen und anwenden. Performance-Optimierung, Troubleshooting sowie Best Practices runden den praxisorientierten Kurs ab.</li>
+              </p>
+<p>
+                <li>Das <strong>Splunk IoT Bootcamp</strong> behandelt klassische IoT-Anwendungsfälle und zeigt die Möglichkeiten zum Einsatz der Technologie für typische Analysefragestellungen im Bereich von Industrie 4.0 – z.B. die Maschinendatenerfassung in Echtzeit, die Zustandsüberwachung oder Anomalieerkennung mittels Machine Learning.</li>
+              </p>
+<p>
+                <li>Der <strong>Frontend-Kurs</strong> richtet sich an Splunk-Entwickler, die mit Splunk-Bordmitteln das Frontend hinsichtlich Design, Funktionalität und Bedienbarkeit erweitern wollen. Lernen Sie dabei mit Hilfe von JavaScript, HTML und CSS ihre Dashboards interaktiv und individuell zu gestalten. Wenden Sie Ihre neugewonnen Kenntnisse an, um die Corporate Design Vorschriften Ihres Unternehmens anzupassen, mehrsprachige Dashboards zu erstellen oder informative Custom Visualisations zu erstellen.</li>
+              </p>
+            </div>
+</ul>
+						</div>
+Alle weiteren Informationen finden Sie hier:
+										<a href="https://www.robotron.de/schulungszentrum/splunk" class="btn btn-secondary my-2" role="button">Link</a>
+					
+</html>
+    </panel>
+  </row>
+</dashboard>

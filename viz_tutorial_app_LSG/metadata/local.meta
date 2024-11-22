@@ -1,0 +1,17 @@
+[app/ui]
+version = 8.0.0
+modtime = 1582718786.674227000
+
+[app/launcher]
+version = 8.0.0
+modtime = 1582718786.680536000
+
+[app/package/check_for_updates]
+version = 8.0.0
+modtime = 1582718786.682269000
+
+[]
+access = read : [ * ], write : [ * ]
+export = system
+version = 8.0.0
+modtime = 1582725645.730950000

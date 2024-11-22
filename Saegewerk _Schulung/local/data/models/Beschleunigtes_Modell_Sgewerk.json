@@ -1,0 +1,284 @@
+{
+    "modelName": "Beschleunigtes_Modell_Sgewerk",
+    "displayName": "Beschleunigtes_Modell_Sägewerk",
+    "description": "",
+    "objectSummary": {
+        "Event-Based": 0,
+        "Transaction-Based": 0,
+        "Search-Based": 2
+    },
+    "objects": [
+        {
+            "objectName": "Alle_Auftrge",
+            "displayName": "Alle Aufträge",
+            "parentName": "BaseSearch",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "_time",
+                    "owner": "Alle_Auftrge",
+                    "type": "timestamp",
+                    "fieldSearch": "_time=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "AuftragsID",
+                    "owner": "Alle_Auftrge",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "AuftragsID",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Dauer",
+                    "owner": "Alle_Auftrge",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Dauer",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Gewicht",
+                    "owner": "Alle_Auftrge",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Gewicht",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Holz",
+                    "owner": "Alle_Auftrge",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Holz",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Kunde",
+                    "owner": "Alle_Auftrge",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Kunde",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Maschine",
+                    "owner": "Alle_Auftrge",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Maschine",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Produkt",
+                    "owner": "Alle_Auftrge",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Produkt",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Umsatz",
+                    "owner": "Alle_Auftrge",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Umsatz",
+                    "comment": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [],
+            "lineage": "Alle_Auftrge",
+            "baseSearch": "index=auftrag"
+        },
+        {
+            "objectName": "Top_Kunden",
+            "displayName": "Top_Kunden",
+            "parentName": "Alle_Auftrge",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "_time",
+                    "owner": "Alle_Auftrge",
+                    "type": "timestamp",
+                    "fieldSearch": "_time=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "AuftragsID",
+                    "owner": "Alle_Auftrge",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "AuftragsID",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Dauer",
+                    "owner": "Alle_Auftrge",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Dauer",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Gewicht",
+                    "owner": "Alle_Auftrge",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Gewicht",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Holz",
+                    "owner": "Alle_Auftrge",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Holz",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Kunde",
+                    "owner": "Alle_Auftrge",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Kunde",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Maschine",
+                    "owner": "Alle_Auftrge",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Maschine",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Produkt",
+                    "owner": "Alle_Auftrge",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Produkt",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Umsatz",
+                    "owner": "Alle_Auftrge",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Umsatz",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "Umsatz_Dollar",
+                            "owner": "Alle_Auftrge.Top_Kunden",
+                            "type": "number",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Umsatz_Dollar",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "eivcv71tshh",
+                    "owner": "Alle_Auftrge.Top_Kunden",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "Umsatz*1.2"
+                }
+            ],
+            "constraints": [
+                {
+                    "search": "Kunde=IDEA OR Kunde=Fuchsbau",
+                    "owner": "Alle_Auftrge.Top_Kunden"
+                }
+            ],
+            "lineage": "Alle_Auftrge.Top_Kunden",
+            "baseSearch": ""
+        }
+    ],
+    "objectNameList": [
+        "Alle_Auftrge",
+        "Top_Kunden"
+    ]
+}

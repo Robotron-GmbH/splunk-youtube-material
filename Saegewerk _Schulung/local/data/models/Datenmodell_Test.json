@@ -1,0 +1,278 @@
+{
+    "modelName": "Datenmodell_Test",
+    "displayName": "Datenmodell_Test",
+    "description": "",
+    "objectSummary": {
+        "Event-Based": 0,
+        "Transaction-Based": 0,
+        "Search-Based": 3
+    },
+    "objects": [
+        {
+            "objectName": "Sgewerk",
+            "displayName": "Sägewerk",
+            "parentName": "BaseSearch",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "_time",
+                    "owner": "Sgewerk",
+                    "type": "timestamp",
+                    "fieldSearch": "_time=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "AuftragsID",
+                    "owner": "Sgewerk",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "AuftragsID",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Dauer",
+                    "owner": "Sgewerk",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Dauer",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Gewicht",
+                    "owner": "Sgewerk",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Gewicht",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Holz",
+                    "owner": "Sgewerk",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Holz",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Kunde",
+                    "owner": "Sgewerk",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Kunde",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Maschine",
+                    "owner": "Sgewerk",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Maschine",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Produkt",
+                    "owner": "Sgewerk",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Produkt",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Umsatz",
+                    "owner": "Sgewerk",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Umsatz",
+                    "comment": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [],
+            "lineage": "Sgewerk",
+            "baseSearch": "index=auftrag"
+        },
+        {
+            "objectName": "TopKunde",
+            "displayName": "TopKunde",
+            "parentName": "Sgewerk",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "_time",
+                    "owner": "Sgewerk",
+                    "type": "timestamp",
+                    "fieldSearch": "_time=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "AuftragsID",
+                    "owner": "Sgewerk",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "AuftragsID",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Dauer",
+                    "owner": "Sgewerk",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Dauer",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Gewicht",
+                    "owner": "Sgewerk",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Gewicht",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Holz",
+                    "owner": "Sgewerk",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Holz",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Kunde",
+                    "owner": "Sgewerk",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Kunde",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Maschine",
+                    "owner": "Sgewerk",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Maschine",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Produkt",
+                    "owner": "Sgewerk",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Produkt",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Umsatz",
+                    "owner": "Sgewerk",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Umsatz",
+                    "comment": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [
+                {
+                    "search": "Kunde=IDEA OR Kunde=Fuchsbau",
+                    "owner": "Sgewerk.TopKunde"
+                }
+            ],
+            "lineage": "Sgewerk.TopKunde",
+            "baseSearch": ""
+        },
+        {
+            "objectName": "Topprodukt",
+            "displayName": "Topprodukt",
+            "parentName": "TopKunde",
+            "comment": "",
+            "fields": [],
+            "calculations": [],
+            "constraints": [
+                {
+                    "search": "Produkt=Tisch OR Produkt=Schrank",
+                    "owner": "Sgewerk.TopKunde.Topprodukt"
+                }
+            ],
+            "lineage": "Sgewerk.TopKunde.Topprodukt",
+            "baseSearch": ""
+        }
+    ],
+    "objectNameList": [
+        "Sgewerk",
+        "TopKunde",
+        "Topprodukt"
+    ]
+}

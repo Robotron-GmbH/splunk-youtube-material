@@ -39,6 +39,14 @@
         <latest>now</latest>
       </search>
     </input>
+    <input type="text" token="tok_min_umsatz" id="id_min_umsatz">
+      <label>Minimum Umsatz</label>
+      <initialValue>0</initialValue>
+    </input>
+    <input type="text" token="tok_max_umsatz" id="id_max_umsatz">
+      <label>Minimum Umsatz</label>
+      <initialValue>9999</initialValue>
+    </input>
   </fieldset>
   <row>
     <panel>
@@ -46,6 +54,7 @@
       <single>
         <search>
           <query>index=auftrag $tok_holz$ $tok_Kunde$
+          | where $tok_min_umsatz$&lt; Umsatz and $tok_max_umsatz$&gt;Umsatz
 | stats sum(Umsatz)</query>
           <earliest>$tok_time.earliest$</earliest>
           <latest>$tok_time.latest$</latest>
@@ -64,9 +73,10 @@
       <table>
         <search>
           <query>index=auftrag $tok_holz$
+          | where $tok_min_umsatz$&lt; Umsatz and $tok_max_umsatz$&gt;Umsatz
 | top Holz</query>
-          <earliest>-24h@h</earliest>
-          <latest>now</latest>
+          <earliest>$tok_time.earliest$</earliest>
+          <latest>$tok_time.latest$</latest>
         </search>
         <option name="drilldown">none</option>
       </table>
@@ -78,9 +88,10 @@
       <chart>
         <search>
           <query>index=auftrag $tok_holz$ $tok_Kunde$
+          | where $tok_min_umsatz$&lt; Umsatz and $tok_max_umsatz$&gt;Umsatz
 | stats sum(Umsatz) by Holz, Produkt,Gewicht</query>
-          <earliest>-24h@h</earliest>
-          <latest>now</latest>
+          <earliest>$tok_time.earliest$</earliest>
+          <latest>$tok_time.latest$</latest>
         </search>
         <option name="charting.chart">scatter</option>
         <option name="charting.drilldown">none</option>
@@ -92,9 +103,10 @@
       <chart>
         <search>
           <query>index="auftrag" $tok_holz$ $tok_Kunde$
+          | where $tok_min_umsatz$&lt; Umsatz and $tok_max_umsatz$&gt;Umsatz
 |  stats sum(Umsatz) by Kunde</query>
-          <earliest>-24h@h</earliest>
-          <latest>now</latest>
+          <earliest>$tok_time.earliest$</earliest>
+          <latest>$tok_time.latest$</latest>
           <sampleRatio>1</sampleRatio>
         </search>
         <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
@@ -138,6 +150,7 @@
       <chart>
         <search>
           <query>index="auftrag" $tok_holz$ $tok_Kunde$
+          | where $tok_min_umsatz$&lt; Umsatz and $tok_max_umsatz$&gt;Umsatz
 | timechart count by Holz</query>
           <earliest>$tok_time.earliest$</earliest>
           <latest>$tok_time.latest$</latest>
@@ -153,8 +166,8 @@
         <search>
           <query>index=auftrag $tok_holz$ $tok_Kunde$
 | chart count by Kunde</query>
-          <earliest>-24h@h</earliest>
-          <latest>now</latest>
+          <earliest>$tok_time.earliest$</earliest>
+          <latest>$tok_time.latest$</latest>
         </search>
         <option name="charting.chart">pie</option>
         <option name="charting.drilldown">none</option>
@@ -166,15 +179,21 @@
       <table id="auftragstabelle">
         <search>
           <query>index=auftrag $tok_holz$ $tok_Kunde$
+          | where $tok_min_umsatz$&lt; Umsatz and $tok_max_umsatz$&gt;Umsatz
 | sort -_time 
 | eval Zeitpunkt=strftime(_time,"%H:%M") 
 | table _time,Zeitpunkt,Kunde, Holz, Produkt, Umsatz</query>
           <earliest>-24h@h</earliest>
           <latest>now</latest>
         </search>
-        <option name="count">50</option>
+        <option name="count">100</option>
+        <option name="dataOverlayMode">heatmap</option>
         <option name="drilldown">cell</option>
+        <option name="percentagesRow">false</option>
         <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">true</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
         <drilldown>
           <set token="tok_umsatz">$row.Umsatz$</set>
         </drilldown>

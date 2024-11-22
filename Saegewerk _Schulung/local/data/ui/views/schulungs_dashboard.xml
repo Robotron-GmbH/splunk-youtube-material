@@ -1,0 +1,106 @@
+<form version="1.1">
+  <label>Schulungs_Dashboard</label>
+  <fieldset submitButton="false">
+    <input type="time" token="tok_time">
+      <label>Uhrzeit</label>
+      <default>
+        <earliest>-4h@m</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+    <input type="dropdown" token="tok_holz">
+      <label>Holz</label>
+      <choice value="*">Alle</choice>
+      <initialValue>*</initialValue>
+      <fieldForLabel>Holz</fieldForLabel>
+      <fieldForValue>Holz</fieldForValue>
+      <search>
+        <query>index=auftrag
+| table Holz
+| dedup Holz</query>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </search>
+    </input>
+    <input type="multiselect" token="tok_kunde">
+      <label>Kunde</label>
+      <choice value="*">Alle</choice>
+      <default>*</default>
+      <valuePrefix>Kunde="</valuePrefix>
+      <valueSuffix>"</valueSuffix>
+      <delimiter> OR </delimiter>
+      <fieldForLabel>Kunde</fieldForLabel>
+      <fieldForValue>Kunde</fieldForValue>
+      <search>
+        <query>index=auftrag
+| table Kunde
+| dedup Kunde</query>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </search>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <title>Übung: Dashboard Übersichtsboard (mit Zeitfilter)</title>
+      <chart>
+        <title>Timechart</title>
+        <search>
+          <query>index=auftrag
+| timechart count by Holz</query>
+          <earliest>$tok_time.earliest$</earliest>
+          <latest>$tok_time.latest$</latest>
+        </search>
+        <option name="charting.chart">line</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+    <panel>
+      <title>Dashboard Erweiterungen - Mehrfach Auswahl (mit Multiselect Auswahl)</title>
+      <chart>
+        <title>Produkte</title>
+        <search>
+          <query>index=auftrag $tok_kunde$ $tok_holz$
+| stats sum(Umsatz) as Gesamtumsatz by Kunde</query>
+          <earliest>$tok_time.earliest$</earliest>
+          <latest>$tok_time.latest$</latest>
+        </search>
+        <option name="charting.chart">column</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Tabelle Top 5</title>
+        <search>
+          <query>index=auftrag
+| top Kunde limit=5</query>
+          <earliest>$tok_time.earliest$</earliest>
+          <latest>$tok_time.latest$</latest>
+        </search>
+        <option name="drilldown">cell</option>
+        <drilldown>
+          <set token="tok_kunde_tabelle">$row.Kunde$</set>
+        </drilldown>
+      </table>
+    </panel>
+    <panel>
+      <chart>
+        <title>Produktauswahl für Kunde $tok_kunde_tabelle$</title>
+        <search>
+          <query>index=auftrag $tok_kunde_tabelle$
+| stats count by Produkt</query>
+          <earliest>$tok_time.earliest$</earliest>
+          <latest>$tok_time.latest$</latest>
+        </search>
+        <option name="charting.chart">pie</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+</form>

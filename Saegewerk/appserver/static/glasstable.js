@@ -117,14 +117,13 @@ lager_results.on("data", function() {
 });
 
 // Execute the Search all X seconds
-var Total;
 var index=0
-interval=setInterval(function(){
-	standort_search.startSearch()
-	lager_search   .startSearch()
+interval = setInterval(function () {
+  standort_search.startSearch();
+  lager_search.startSearch();
+  console.log("Index",index)
 
-	index=index+1	
-	if(index>10){clearInterval(interval);};
+  index = index + 1;
 }, 10000);
 
 
