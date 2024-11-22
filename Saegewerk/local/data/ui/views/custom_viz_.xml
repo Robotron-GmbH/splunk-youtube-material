@@ -1,0 +1,26 @@
+<dashboard version="1.1" theme="light">
+  <label>Custom VIZ</label>
+  <description>Custom VIZ für Frontendübungen</description>
+  <row>
+    <panel>
+      <title>Aktueller Prozess im Sägewerk</title>
+      <viz type="viz_tutorial_app_LSG.kreis_prozess">
+        <search>
+          <query>index="prozesskette"
+[search index="prozesskette" AND Prozessschritt IN (Lagerhalle_* )
+| stats latest(Auftragsnummer) as Auftragsnummer]
+| sort _time
+| eval mytime=strftime(_time,"%H:%M:%S")
+| delta _time AS Differenz
+| table mytime Prozessschritt Differenz</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+          <refresh>30s</refresh>
+          <refreshType>delay</refreshType>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </viz>
+    </panel>
+  </row>
+</dashboard>
