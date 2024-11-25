@@ -155,3 +155,20 @@ modtime = 1635352780.805190600
 [app/package/check_for_updates]
 version = 8.2.2
 modtime = 1641387849.406483100
+
+[views/uebersicht_auftrge_javascript_verbesserungen]
+version = 9.3.0
+modtime = 1724673966.301291500
+
+[views/maschinen_berwachung]
+version = 9.3.2
+modtime = 1731942394.690547200
+
+[views/bersicht_auftrge_frontendkurs]
+version = 9.3.2
+modtime = 1732203858.738081200
+
+[views/custom_viz_]
+owner = admin
+version = 9.3.2
+modtime = 1732276967.515590800
