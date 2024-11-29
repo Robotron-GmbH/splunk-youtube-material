@@ -29,6 +29,11 @@
          height='43' rx='5' ry='5'
          x='3'
          y='3'/&gt;
+       &lt;rect style='fill:black;'
+         width='7'
+         height='28'
+         x='93' rx='5' ry='5'
+         y='10'/&gt;
          &lt;rect
          width='11'
          height='28'

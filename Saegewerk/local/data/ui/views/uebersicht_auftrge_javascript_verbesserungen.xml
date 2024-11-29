@@ -44,7 +44,7 @@
       <initialValue>0</initialValue>
     </input>
     <input type="text" token="tok_max_umsatz" id="id_max_umsatz">
-      <label>Minimum Umsatz</label>
+      <label>Maximum Umsatz</label>
       <initialValue>9999</initialValue>
     </input>
   </fieldset>

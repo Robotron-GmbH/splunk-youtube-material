@@ -18,8 +18,8 @@ function einfarben(ID,wert){
 
 function set_token(token_name,token_value){
 	// Setze Token in Default(wichtig für Title in DB) UND Submitted Mode (wichtig für SPL-Suche)
-	var submittedTokens = mvc.Components.getInstance('default'); 
-	submittedTokens.set(token_name,token_value); 
+	var defaultTokens = mvc.Components.getInstance('default'); 
+	defaultTokens.set(token_name,token_value); 
 	var submittedTokens = mvc.Components.getInstance('submitted'); 
 	submittedTokens.set(token_name,token_value); 
 }
